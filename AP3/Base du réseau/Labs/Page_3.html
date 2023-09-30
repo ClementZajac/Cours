@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" type="text/css" href="Skin/base.css" />
+<link rel="stylesheet" type="text/css" href="Skin/content.css" />
+<link rel="stylesheet" type="text/css" href="Skin/nav.css" />
+<link rel="stylesheet" type="text/css" href="Skin/style.css" />
+<link rel="stylesheet" type="text/css" href="Skin/bootstrap.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Principes de génération de trames - Manipulation de protocoles</title>
+<link rel="shortcut icon" href="Skin/favicon.ico" type="image/x-icon" />
+<!--[if lt IE 9]><script type="text/javascript" src="Skin/exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="Skin/jquery.js"></script>
+<script type="text/javascript" src="Skin/exe_jquery.js"></script>
+<script type="text/javascript" src="Skin/common_i18n.js"></script>
+<script type="text/javascript" src="Skin/common.js"></script>
+<script type="text/javascript" src="Skin/exe_html5.js"></script>
+<script type="text/javascript" src="Skin/html5gallery.js"></script>
+<script type="text/javascript" src="Skin/gauge.min.js"></script>
+<script type="text/javascript" src="Skin/chart.min.js"></script>
+<script type="text/javascript" src="Skin/quiz.min.js"></script>
+<script type="text/javascript" src="Skin/nhpup.js"></script>
+<script type="text/javascript" src="Skin/know.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<nav id="siteNav">
+<iframe id="inlineFrame" title="Inline Frame" width="253" height="133" src="menu.html"></iframe></br>
+<ul>
+<li><a href="index.html" class="daddy main-node">Manipulation de protocoles</a></li>
+<li><a href="Page_1.html" class="no-ch">VMware</a></li>
+<li><a href="Page_2.html" class="no-ch">Configuration réseau</a></li>
+<li id="active"><a class="active no-ch">Principes de génération de trames</a></li>
+<li><a href="Page_4.html" class="no-ch">Syntaxe de génération de trames</a></li>
+<li><a href="Page_5.html" class="no-ch">Analyse de trames</a></li>
+<li><a href="Page_6.html" class="no-ch"><b>Lab</b> diffusion Ethernet</a></li>
+<li><a href="Page_7.html" class="no-ch"><b>Lab</b> adresses Ethernet unicast et broadcast</a></li>
+<li><a href="Page_8.html" class="no-ch"><b>Lab</b> encapsulation d'un datagramme IP unicast et broadcast</a></li>
+<li><a href="Page_9.html" class="no-ch"><b>Lab</b> correspondance adresses Ethernet et IP, ARP</a></li>
+<li><a href="Page_10.html" class="no-ch"><b>Lab</b> cache ARP</a></li>
+<li><a href="Page_11.html" class="no-ch"><b>Lab</b> acceptation d'une trame Ethernet</a></li>
+<li><a href="Page_12.html" class="no-ch"><b>Lab</b> routage local</a></li>
+<li><a href="Page_13.html" class="no-ch"><b>Lab</b> IP forwarding</a></li>
+</ul>
+</nav>
+<div id="main-wrapper">
+<section id="main">
+<nav id="sitenav_top"></nav>
+<nav class="pagination noprt">
+<a href="Page_2.html" class="prev"><span><span>&laquo; </span>Précédent</span></a><span class="sep"> | </span><a href="Page_4.html" class="next"><span>Suivant<span> &raquo;</span></span></a>
+</nav>
+<div id="nodeDecoration"><p id="nodeTitle">Principes de génération de trames - Manipulation de protocoles</p></div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_presentation.png" />
+<span class="iDeviceTitle" style="color:#fd7e35" >Scapy&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_1">
+<div id="score_3_1" class="scores" data-blockname="Scapy">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(3, 1, 0);"></image>
+<span id="score_3_1_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(3, 1, 1);"></image>
+<span id="score_3_1_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(3, 1, 2);"></image>
+<span id="score_3_1_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 1, 3);"></image>
+<span id="score_3_1_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 1, 3);"></image>
+<span id="score_3_1_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 1, 3);"></image>
+<span id="score_3_1_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_3_1_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_3_1_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(3, 1, 6);"></image>
+<span id="score_3_1_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_3_1_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_3_1_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_3_1_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_1" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+Pour réaliser les labs suivants, vous disposez de <b>machines virtuelles Tiny Core Linux</b> qui vous permettent d'utiliser l'environnement <b>scapy sous python pour générer et analyser des trames</b>. Tiny Core Linux a été choisi pour ne pas surcharger la mémoire de votre ordinateur. Elle vous permet de passer des commandes système en mode terminal.</br></br><image src="Skin/Support_cours_10.png"></image> La commande "./scapy" permet d'accéder à la console python.</br></br>Pour en sortir : ctrl D
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_not_defined.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Construction d'une trame&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_2">
+<div id="score_3_2" class="scores" data-blockname="Construction d'une trame">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(3, 2, 0);"></image>
+<span id="score_3_2_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(3, 2, 1);"></image>
+<span id="score_3_2_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(3, 2, 2);"></image>
+<span id="score_3_2_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 2, 3);"></image>
+<span id="score_3_2_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 2, 3);"></image>
+<span id="score_3_2_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 2, 3);"></image>
+<span id="score_3_2_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_3_2_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_3_2_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(3, 2, 6);"></image>
+<span id="score_3_2_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_3_2_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_3_2_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_3_2_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_2" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+L'élaboration d'une trame réseau nécessite d'assembler la contribution de différents protocoles : Ehernet, IP, TCP, ....</br></br>Pour mieux appréhender ce processus, vous pouvez construire la trame couche par couche, puis assembler l'ensemble pour former la trame complète.</br></br>La <b>syntaxe générale</b> est la suivante : variable_python = mot_clé_protocole(paramètres de la trame).</br></br>Exemples : </br>trame_eth_802.3 = DOT3(...)</br>trame_eth_II = Ether(...)</br>trame_ip = IP(...)</br>trame_icmp = ICMP(...)</br></br><b>L'assemblage</b> de ces portions de trame se fait simplement en les concaténant avec le séparateur / : </br>trame_to_send = trame_eth / trame_ip / trame_icmp / payload</br></br>Le détail des formats de trame est donné dans le chapitre suivant. <b>Vous porterez une attention particulière aux types des paramètres</b> (chaine de caractères, entiers, ...), le cas échéant scapy émettra des erreurs.</br></br><b>ATTENTION</b> : si vous apportez des modifications à un sous ensemble d'une trame existante (par exemple le contenu de la trame IP), elles ne seront prises en compte que si vous réassemblez de nouveau l'ensemble de la trame (trame_to_send = trame_eth / trame_ip / trame_icmp / payload)</br>.</br>Documentation scapy
+<b><span STYLE="font-size:4.5mm"><a href="https://scapy.readthedocs.io/en/latest/usage.html#simple-one-liners" target="_blank" style="color:#DD0000" >online.</a></span></b>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_not_defined.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Visualisation d'une trame&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_3">
+<div id="score_3_3" class="scores" data-blockname="Visualisation d'une trame">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(3, 3, 0);"></image>
+<span id="score_3_3_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(3, 3, 1);"></image>
+<span id="score_3_3_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(3, 3, 2);"></image>
+<span id="score_3_3_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 3, 3);"></image>
+<span id="score_3_3_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 3, 3);"></image>
+<span id="score_3_3_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 3, 3);"></image>
+<span id="score_3_3_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_3_3_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_3_3_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(3, 3, 6);"></image>
+<span id="score_3_3_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_3_3_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_3_3_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_3_3_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_3" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+Pour <b>visualiser le contenu d'une trame</b>, vous disposez de plusieurs formats (à utiliser en ligne de commande) :</br>- Format brut : variable_python</br>- Format détaillé : variable_python.show()</br>- Format compact : variable_python.summary()</br></br>Si vous ne vous souvenez pas des paramètres d'un des protocoles, il vous suffit de créer une variable associée au protocole concerné, exemple "trame_eth_II = Ether()", et de laisser scapy initialiser les valeurs par défaut de chaque paramètre. Vous affichez ensuite le détail avec l'option ".show()", dans l'exemple donné, "trame_eth_II.show()".
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_not_defined.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Envoi d'une trame&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_4">
+<div id="score_3_4" class="scores" data-blockname="Envoi d'une trame">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(3, 4, 0);"></image>
+<span id="score_3_4_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(3, 4, 1);"></image>
+<span id="score_3_4_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(3, 4, 2);"></image>
+<span id="score_3_4_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 4, 3);"></image>
+<span id="score_3_4_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 4, 3);"></image>
+<span id="score_3_4_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(3, 4, 3);"></image>
+<span id="score_3_4_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_3_4_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_3_4_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(3, 4, 6);"></image>
+<span id="score_3_4_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_3_4_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_3_4_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_3_4_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_4" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+Pour <b>envoyer une trame</b> par une interface réseau, il vous faut disposer de son nom que vous pouvez identifier dans la liste des interfaces actives disponibles eth0, eth1, ... (ifconfig).</br></br>L'interface doit être préalablement activée depuis un terminal linux avant de pouvoir être utilisée (ifconfig <i>nom_interface</i> up). Pour obtenir la liste complète des interfaces actives et non actives (ifconfig -a).</br></br><b>L'envoi se fait depuis scapy</b> avec la commande sendp() : sendp(nom_trame, iface="nom_interface")
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<nav id="sitenav_bottom"></nav>
+<nav class="pagination noprt">
+<a href="Page_2.html" class="prev"><span><span>&laquo; </span>Précédent</span></a><span class="sep"> | </span><a href="Page_4.html" class="next"><span>Suivant<span> &raquo;</span></span></a>
+</nav>
+</br>
+</section>
+</div>
+</div>
+<script type="text/javascript" src="Skin/_intef_js.js"></script>
+<script type="text/javascript" src="Skin/scores.min.js"></script>
+</body></html>

@@ -1,0 +1,65 @@
+MPASM 5.77                          MAIN.ASM   12-9-2021  9:37:40         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; TODO INSERT CONFIG CODE HERE USING CONFIG BITS GENERATOR
+Warning[207]: Found label after column 1. (GPR_VAR)
+                      00002     GPR_VAR        UDATA
+Warning[207]: Found label after column 1. (somme)
+000000                00003     somme           RES     1      ; User variable linker places
+Warning[207]: Found label after column 1. (incrementeur)
+000001                00004     incrementeur    RES     1      ; User variable linker places
+Warning[207]: Found label after column 1. (longueur)
+000002                00005     longueur        RES     1
+                      00006             
+                      00007 RES_VECT  CODE    0x0000            ; processor reset vector
+000000 EF?? F???      00008     GOTO    DEBUT                   ; go to beginning of program
+                      00009 
+                      00010 ; TODO ADD INTERRUPTS HERE IF USED
+                      00011 
+                      00012 MAIN_PROG CODE                      ; let linker place main program
+                      00013 
+000000                00014 DEBUT
+                      00015 
+                      00016     ; init
+000000 0E00           00017     MovLW d'0'
+000002 6E??           00018     MovWF incrementeur
+000004 0E13           00019     MovLW d'19'
+000006 6E??           00020     MovWF longueur
+000008 0E00           00021     MovLW d'0'
+00000A 6E??           00022     MovWF somme
+                      00023   
+                      00024     
+                      00025     ; 1st loop
+00000C                00026 L1
+00000C 5000           00027     MovF somme, 0
+00000E 2400           00028     ADDWF incrementeur, 0
+000010 6E??           00029     MovWF somme
+000012 2A??           00030     INCF incrementeur
+000014 5000           00031     MovF incrementeur, 0
+000016 60??           00032     CPFSLT longueur
+000018 EF?? F???      00033     GOTO L1
+                      00034 
+                      00035     END
+MPASM 5.77                          MAIN.ASM   12-9-2021  9:37:40         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+DEBUT                             00000000
+L1                                0000000C
+__18F45K20                        00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+incrementeur                      00000001
+longueur                          00000002
+somme                             00000000
+
+Errors   :     0
+Warnings :     4 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

@@ -1,0 +1,1120 @@
+login as: user148
+user148@10.34.161.22's password:
+Linux Serveur-Raspbian 4.19.0-8-amd64 #1 SMP Debian 4.19.98-1 (2020-01-26) x86_6             4
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+user148@Serveur-Raspbian:~ $ ls
+user148@Serveur-Raspbian:~ $ cd /home/
+user148@Serveur-Raspbian:/home $ ls
+pi       user120  user151  user182  user213  user244  user275  user36  user70
+user00   user121  user152  user183  user214  user245  user276  user37  user71
+user01   user122  user153  user184  user215  user246  user277  user38  user72
+user02   user123  user154  user185  user216  user247  user278  user39  user73
+user03   user124  user155  user186  user217  user248  user279  user40  user74
+user04   user125  user156  user187  user218  user249  user28   user41  user75
+user05   user126  user157  user188  user219  user25   user280  user42  user76
+user06   user127  user158  user189  user22   user250  user281  user43  user77
+user07   user128  user159  user19   user220  user251  user282  user44  user78
+user08   user129  user16   user190  user221  user252  user283  user45  user79
+user09   user13   user160  user191  user222  user253  user284  user46  user80
+user10   user130  user161  user192  user223  user254  user285  user47  user81
+user100  user131  user162  user193  user224  user255  user286  user48  user82
+user101  user132  user163  user194  user225  user256  user287  user49  user83
+user102  user133  user164  user195  user226  user257  user288  user50  user84
+user103  user134  user165  user196  user227  user258  user289  user51  user85
+user104  user135  user166  user197  user228  user259  user29   user52  user86
+user105  user136  user167  user198  user229  user26   user290  user53  user87
+user106  user137  user168  user199  user23   user260  user291  user54  user88
+user107  user138  user169  user20   user230  user261  user292  user55  user89
+user108  user139  user17   user200  user231  user262  user293  user56  user90
+user109  user14   user170  user201  user232  user263  user294  user57  user91
+user11   user140  user171  user202  user233  user264  user295  user58  user92
+user110  user141  user172  user203  user234  user265  user296  user59  user93
+user111  user142  user173  user204  user235  user266  user297  user60  user94
+user112  user143  user174  user205  user236  user267  user298  user61  user95
+user113  user144  user175  user206  user237  user268  user299  user62  user96
+user114  user145  user176  user207  user238  user269  user30   user63  user97
+user115  user146  user177  user208  user239  user27   user300  user64  user98
+user116  user147  user178  user209  user24   user270  user31   user65  user99
+user117  user148  user179  user21   user240  user271  user32   user66  user-S5.tar.gz
+user118  user149  user18   user210  user241  user272  user33   user67
+user119  user15   user180  user211  user242  user273  user34   user68
+user12   user150  user181  user212  user243  user274  user35   user69
+user148@Serveur-Raspbian:/home $
+user148@Serveur-Raspbian:/home $ cd user148
+user148@Serveur-Raspbian:~ $ ls
+user148@Serveur-Raspbian:~ $ pwd
+/home/user148
+user148@Serveur-Raspbian:~ $ mkdir toto
+user148@Serveur-Raspbian:~ $ ls
+toto
+user148@Serveur-Raspbian:~ $ pxd
+-bash: pxd : commande introuvable
+user148@Serveur-Raspbian:~ $ cd toto
+user148@Serveur-Raspbian:~/toto $ pxd
+-bash: pxd : commande introuvable
+user148@Serveur-Raspbian:~/toto $ pwd
+/home/user148/toto
+user148@Serveur-Raspbian:~/toto $ cd /
+user148@Serveur-Raspbian:/ $ ls
+bin       dev   initrd.img      lost+found  opt   run   sys  var
+boot      etc   initrd.img.old  media       proc  sbin  tmp  vmlinuz
+boot.bak  home  lib             mnt         root  srv   usr  vmlinuz.old
+user148@Serveur-Raspbian:/ $ cd /home/user148/toto/
+user148@Serveur-Raspbian:~/toto $ cd ~
+user148@Serveur-Raspbian:~ $ ls
+toto
+user148@Serveur-Raspbian:~ $ pwd
+/home/user148
+user148@Serveur-Raspbian:~ $ cd ..
+user148@Serveur-Raspbian:/home $ cd /home/user148/toto/
+user148@Serveur-Raspbian:~/toto $ cd ..
+user148@Serveur-Raspbian:~ $ mkdir toto2
+user148@Serveur-Raspbian:~ $ cd toto
+user148@Serveur-Raspbian:~/toto $ cd /etc/
+user148@Serveur-Raspbian:/etc $ ls -d s*
+securetty  sensors3.conf  sgml     shells  ssh     subgid-  sudoers      sysctl.d
+security   sensors.d      shadow   site    ssl     subuid   sudoers.d    systemd
+selinux    services       shadow-  skel    subgid  subuid-  sysctl.conf
+user148@Serveur-Raspbian:/etc $ cat sevices
+cat: sevices: Aucun fichier ou dossier de ce type
+user148@Serveur-Raspbian:/etc $ cat services
+# Network services, Internet style
+#
+# Note that it is presently the policy of IANA to assign a single well-known
+# port number for both TCP and UDP; hence, officially ports have two entries
+# even if the protocol doesn't support UDP operations.
+#
+# Updated from https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml .
+#
+# New ports will be added on request if they have been officially assigned
+# by IANA and used in the real-world or are needed by a debian package.
+# If you need a huge list of used numbers please install the nmap package.
+
+tcpmux          1/tcp                           # TCP port service multiplexer
+echo            7/tcp
+echo            7/udp
+discard         9/tcp           sink null
+discard         9/udp           sink null
+systat          11/tcp          users
+daytime         13/tcp
+daytime         13/udp
+netstat         15/tcp
+qotd            17/tcp          quote
+msp             18/tcp                          # message send protocol
+msp             18/udp
+chargen         19/tcp          ttytst source
+chargen         19/udp          ttytst source
+ftp-data        20/tcp
+ftp             21/tcp
+fsp             21/udp          fspd
+ssh             22/tcp                          # SSH Remote Login Protocol
+telnet          23/tcp
+smtp            25/tcp          mail
+time            37/tcp          timserver
+time            37/udp          timserver
+rlp             39/udp          resource        # resource location
+nameserver      42/tcp          name            # IEN 116
+whois           43/tcp          nicname
+tacacs          49/tcp                          # Login Host Protocol (TACACS)
+tacacs          49/udp
+domain          53/tcp                          # Domain Name Server
+domain          53/udp
+bootps          67/udp
+bootpc          68/udp
+tftp            69/udp
+gopher          70/tcp                          # Internet Gopher
+finger          79/tcp
+http            80/tcp          www             # WorldWideWeb HTTP
+link            87/tcp          ttylink
+kerberos        88/tcp          kerberos5 krb5 kerberos-sec     # Kerberos v5
+kerberos        88/udp          kerberos5 krb5 kerberos-sec     # Kerberos v5
+iso-tsap        102/tcp         tsap            # part of ISODE
+acr-nema        104/tcp         dicom           # Digital Imag. & Comm. 300
+pop3            110/tcp         pop-3           # POP version 3
+sunrpc          111/tcp         portmapper      # RPC 4.0 portmapper
+sunrpc          111/udp         portmapper
+auth            113/tcp         authentication tap ident
+sftp            115/tcp
+nntp            119/tcp         readnews untp   # USENET News Transfer Protocol
+ntp             123/udp                         # Network Time Protocol
+epmap           135/tcp         loc-srv         # DCE endpoint resolution
+epmap           135/udp         loc-srv
+netbios-ns      137/tcp                         # NETBIOS Name Service
+netbios-ns      137/udp
+netbios-dgm     138/tcp                         # NETBIOS Datagram Service
+netbios-dgm     138/udp
+netbios-ssn     139/tcp                         # NETBIOS session service
+netbios-ssn     139/udp
+imap2           143/tcp         imap            # Interim Mail Access P 2 and 4
+snmp            161/tcp                         # Simple Net Mgmt Protocol
+snmp            161/udp
+snmp-trap       162/tcp         snmptrap        # Traps for SNMP
+snmp-trap       162/udp         snmptrap
+cmip-man        163/tcp                         # ISO mgmt over IP (CMOT)
+cmip-man        163/udp
+cmip-agent      164/tcp
+cmip-agent      164/udp
+mailq           174/tcp                 # Mailer transport queue for Zmailer
+mailq           174/udp
+xdmcp           177/tcp                         # X Display Mgr. Control Proto
+xdmcp           177/udp
+nextstep        178/tcp         NeXTStep NextStep       # NeXTStep window
+nextstep        178/udp         NeXTStep NextStep       #  server
+bgp             179/tcp                         # Border Gateway Protocol
+irc             194/tcp                         # Internet Relay Chat
+irc             194/udp
+smux            199/tcp                         # SNMP Unix Multiplexer
+smux            199/udp
+at-rtmp         201/tcp                         # AppleTalk routing
+at-rtmp         201/udp
+at-nbp          202/tcp                         # AppleTalk name binding
+at-nbp          202/udp
+at-echo         204/tcp                         # AppleTalk echo
+at-echo         204/udp
+at-zis          206/tcp                         # AppleTalk zone information
+at-zis          206/udp
+qmtp            209/tcp                         # Quick Mail Transfer Protocol
+qmtp            209/udp
+z3950           210/tcp         wais            # NISO Z39.50 database
+z3950           210/udp         wais
+ipx             213/tcp                         # IPX
+ipx             213/udp
+ptp-event       319/udp
+ptp-general     320/udp
+pawserv         345/tcp                         # Perf Analysis Workbench
+pawserv         345/udp
+zserv           346/tcp                         # Zebra server
+zserv           346/udp
+fatserv         347/tcp                         # Fatmen Server
+fatserv         347/udp
+rpc2portmap     369/tcp
+rpc2portmap     369/udp                         # Coda portmapper
+codaauth2       370/tcp
+codaauth2       370/udp                         # Coda authentication server
+clearcase       371/tcp         Clearcase
+clearcase       371/udp         Clearcase
+ulistserv       372/tcp                         # UNIX Listserv
+ulistserv       372/udp
+ldap            389/tcp                 # Lightweight Directory Access Protocol
+ldap            389/udp
+imsp            406/tcp                 # Interactive Mail Support Protocol
+imsp            406/udp
+svrloc          427/tcp                         # Server Location
+svrloc          427/udp
+https           443/tcp                         # http protocol over TLS/SSL
+snpp            444/tcp                         # Simple Network Paging Protocol
+snpp            444/udp
+microsoft-ds    445/tcp                         # Microsoft Naked CIFS
+microsoft-ds    445/udp
+kpasswd         464/tcp
+kpasswd         464/udp
+submissions     465/tcp         ssmtp smtps urd # Submission over TLS [RFC8314]
+saft            487/tcp                 # Simple Asynchronous File Transfer
+saft            487/udp
+isakmp          500/tcp                 # IPsec - Internet Security Association
+isakmp          500/udp                 #  and Key Management Protocol
+rtsp            554/tcp                 # Real Time Stream Control Protocol
+rtsp            554/udp
+nqs             607/tcp                         # Network Queuing system
+nqs             607/udp
+npmp-local      610/tcp         dqs313_qmaster          # npmp-local / DQS
+npmp-local      610/udp         dqs313_qmaster
+npmp-gui        611/tcp         dqs313_execd            # npmp-gui / DQS
+npmp-gui        611/udp         dqs313_execd
+hmmp-ind        612/tcp         dqs313_intercell        # HMMP Indication / DQS
+hmmp-ind        612/udp         dqs313_intercell
+asf-rmcp        623/udp         # ASF Remote Management and Control Protocol
+qmqp            628/tcp
+qmqp            628/udp
+ipp             631/tcp                         # Internet Printing Protocol
+ipp             631/udp
+#
+# UNIX specific services
+#
+exec            512/tcp
+biff            512/udp         comsat
+login           513/tcp
+who             513/udp         whod
+shell           514/tcp         cmd             # no passwords used
+syslog          514/udp
+printer         515/tcp         spooler         # line printer spooler
+talk            517/udp
+ntalk           518/udp
+route           520/udp         router routed   # RIP
+timed           525/udp         timeserver
+tempo           526/tcp         newdate
+courier         530/tcp         rpc
+conference      531/tcp         chat
+netnews         532/tcp         readnews
+netwall         533/udp                         # for emergency broadcasts
+gdomap          538/tcp                         # GNUstep distributed objects
+gdomap          538/udp
+uucp            540/tcp         uucpd           # uucp daemon
+klogin          543/tcp                         # Kerberized `rlogin' (v5)
+kshell          544/tcp         krcmd           # Kerberized `rsh' (v5)
+dhcpv6-client   546/tcp
+dhcpv6-client   546/udp
+dhcpv6-server   547/tcp
+dhcpv6-server   547/udp
+afpovertcp      548/tcp                         # AFP over TCP
+afpovertcp      548/udp
+idfp            549/tcp
+idfp            549/udp
+remotefs        556/tcp         rfs_server rfs  # Brunhoff remote filesystem
+nntps           563/tcp         snntp           # NNTP over SSL
+submission      587/tcp                         # Submission [RFC4409]
+ldaps           636/tcp                         # LDAP over SSL
+ldaps           636/udp
+tinc            655/tcp                         # tinc control port
+tinc            655/udp
+silc            706/tcp
+silc            706/udp
+kerberos-adm    749/tcp                         # Kerberos `kadmin' (v5)
+#
+webster         765/tcp                         # Network dictionary
+webster         765/udp
+domain-s        853/tcp                         # DNS over TLS [RFC7858]
+domain-s        853/udp                         # DNS over DTLS [RFC8094]
+rsync           873/tcp
+ftps-data       989/tcp                         # FTP over SSL (data)
+ftps            990/tcp
+telnets         992/tcp                         # Telnet over SSL
+imaps           993/tcp                         # IMAP over SSL
+pop3s           995/tcp                         # POP-3 over SSL
+#
+# From ``Assigned Numbers'':
+#
+#> The Registered Ports are not controlled by the IANA and on most systems
+#> can be used by ordinary user processes or programs executed by ordinary
+#> users.
+#
+#> Ports are used in the TCP [45,106] to name the ends of logical
+#> connections which carry long term conversations.  For the purpose of
+#> providing services to unknown callers, a service contact port is
+#> defined.  This list specifies the port used by the server process as its
+#> contact port.  While the IANA can not control uses of these ports it
+#> does register or list uses of these ports as a convienence to the
+#> community.
+#
+socks           1080/tcp                        # socks proxy server
+socks           1080/udp
+proofd          1093/tcp
+proofd          1093/udp
+rootd           1094/tcp
+rootd           1094/udp
+openvpn         1194/tcp
+openvpn         1194/udp
+rmiregistry     1099/tcp                        # Java RMI Registry
+rmiregistry     1099/udp
+kazaa           1214/tcp
+kazaa           1214/udp
+nessus          1241/tcp                        # Nessus vulnerability
+nessus          1241/udp                        #  assessment scanner
+lotusnote       1352/tcp        lotusnotes      # Lotus Note
+lotusnote       1352/udp        lotusnotes
+ms-sql-s        1433/tcp                        # Microsoft SQL Server
+ms-sql-s        1433/udp
+ms-sql-m        1434/tcp                        # Microsoft SQL Monitor
+ms-sql-m        1434/udp
+ingreslock      1524/tcp
+ingreslock      1524/udp
+datametrics     1645/tcp        old-radius
+datametrics     1645/udp        old-radius
+sa-msg-port     1646/tcp        old-radacct
+sa-msg-port     1646/udp        old-radacct
+kermit          1649/tcp
+kermit          1649/udp
+groupwise       1677/tcp
+groupwise       1677/udp
+l2f             1701/tcp        l2tp
+l2f             1701/udp        l2tp
+radius          1812/tcp
+radius          1812/udp
+radius-acct     1813/tcp        radacct         # Radius Accounting
+radius-acct     1813/udp        radacct
+msnp            1863/tcp                        # MSN Messenger
+msnp            1863/udp
+unix-status     1957/tcp                        # remstats unix-status server
+log-server      1958/tcp                        # remstats log server
+remoteping      1959/tcp                        # remstats remoteping server
+cisco-sccp      2000/tcp                        # Cisco SCCP
+cisco-sccp      2000/udp
+search          2010/tcp        ndtp
+pipe-server     2010/tcp        pipe_server
+nfs             2049/tcp                        # Network File System
+nfs             2049/udp                        # Network File System
+gnunet          2086/tcp
+gnunet          2086/udp
+rtcm-sc104      2101/tcp                        # RTCM SC-104 IANA 1/29/99
+rtcm-sc104      2101/udp
+gsigatekeeper   2119/tcp
+gsigatekeeper   2119/udp
+gris            2135/tcp                # Grid Resource Information Server
+gris            2135/udp
+cvspserver      2401/tcp                        # CVS client/server operations
+cvspserver      2401/udp
+venus           2430/tcp                        # codacon port
+venus           2430/udp                        # Venus callback/wbc interface
+venus-se        2431/tcp                        # tcp side effects
+venus-se        2431/udp                        # udp sftp side effect
+codasrv         2432/tcp                        # not used
+codasrv         2432/udp                        # server port
+codasrv-se      2433/tcp                        # tcp side effects
+codasrv-se      2433/udp                        # udp sftp side effect
+mon             2583/tcp                        # MON traps
+mon             2583/udp
+dict            2628/tcp                        # Dictionary server
+dict            2628/udp
+f5-globalsite   2792/tcp
+f5-globalsite   2792/udp
+gsiftp          2811/tcp
+gsiftp          2811/udp
+gpsd            2947/tcp
+gpsd            2947/udp
+gds-db          3050/tcp        gds_db          # InterBase server
+gds-db          3050/udp        gds_db
+icpv2           3130/tcp        icp             # Internet Cache Protocol
+icpv2           3130/udp        icp
+isns            3205/tcp                        # iSNS Server Port
+isns            3205/udp                        # iSNS Server Port
+iscsi-target    3260/tcp
+mysql           3306/tcp
+mysql           3306/udp
+nut             3493/tcp                        # Network UPS Tools
+nut             3493/udp
+distcc          3632/tcp                        # distributed compiler
+distcc          3632/udp
+daap            3689/tcp                        # Digital Audio Access Protocol
+daap            3689/udp
+svn             3690/tcp        subversion      # Subversion protocol
+svn             3690/udp        subversion
+suucp           4031/tcp                        # UUCP over SSL
+suucp           4031/udp
+sysrqd          4094/tcp                        # sysrq daemon
+sysrqd          4094/udp
+sieve           4190/tcp                        # ManageSieve Protocol
+epmd            4369/tcp                        # Erlang Port Mapper Daemon
+epmd            4369/udp
+remctl          4373/tcp                # Remote Authenticated Command Service
+remctl          4373/udp
+f5-iquery       4353/tcp                        # F5 iQuery
+f5-iquery       4353/udp
+ipsec-nat-t     4500/udp                        # IPsec NAT-Traversal [RFC3947]
+iax             4569/tcp                        # Inter-Asterisk eXchange
+iax             4569/udp
+mtn             4691/tcp                        # monotone Netsync Protocol
+mtn             4691/udp
+radmin-port     4899/tcp                        # RAdmin Port
+radmin-port     4899/udp
+rfe             5002/udp                        # Radio Free Ethernet
+rfe             5002/tcp
+mmcc            5050/tcp        # multimedia conference control tool (Yahoo IM)
+mmcc            5050/udp
+sip             5060/tcp                        # Session Initiation Protocol
+sip             5060/udp
+sip-tls         5061/tcp
+sip-tls         5061/udp
+aol             5190/tcp                        # AIM
+aol             5190/udp
+xmpp-client     5222/tcp        jabber-client   # Jabber Client Connection
+xmpp-client     5222/udp        jabber-client
+xmpp-server     5269/tcp        jabber-server   # Jabber Server Connection
+xmpp-server     5269/udp        jabber-server
+cfengine        5308/tcp
+cfengine        5308/udp
+mdns            5353/tcp                        # Multicast DNS
+mdns            5353/udp
+postgresql      5432/tcp        postgres        # PostgreSQL Database
+postgresql      5432/udp        postgres
+freeciv         5556/tcp        rptp            # Freeciv gameplay
+freeciv         5556/udp
+amqps           5671/tcp                        # AMQP protocol over TLS/SSL
+amqp            5672/tcp
+amqp            5672/udp
+amqp            5672/sctp
+ggz             5688/tcp                        # GGZ Gaming Zone
+ggz             5688/udp
+x11             6000/tcp        x11-0           # X Window System
+x11             6000/udp        x11-0
+x11-1           6001/tcp
+x11-1           6001/udp
+x11-2           6002/tcp
+x11-2           6002/udp
+x11-3           6003/tcp
+x11-3           6003/udp
+x11-4           6004/tcp
+x11-4           6004/udp
+x11-5           6005/tcp
+x11-5           6005/udp
+x11-6           6006/tcp
+x11-6           6006/udp
+x11-7           6007/tcp
+x11-7           6007/udp
+gnutella-svc    6346/tcp                        # gnutella
+gnutella-svc    6346/udp
+gnutella-rtr    6347/tcp                        # gnutella
+gnutella-rtr    6347/udp
+sge-qmaster     6444/tcp        sge_qmaster     # Grid Engine Qmaster Service
+sge-qmaster     6444/udp        sge_qmaster
+sge-execd       6445/tcp        sge_execd       # Grid Engine Execution Service
+sge-execd       6445/udp        sge_execd
+mysql-proxy     6446/tcp                        # MySQL Proxy
+mysql-proxy     6446/udp
+babel           6696/udp                        # Babel Routing Protocol
+ircs-u          6697/tcp                # Internet Relay Chat via TLS/SSL
+afs3-fileserver 7000/tcp        bbs             # file server itself
+afs3-fileserver 7000/udp        bbs
+afs3-callback   7001/tcp                        # callbacks to cache managers
+afs3-callback   7001/udp
+afs3-prserver   7002/tcp                        # users & groups database
+afs3-prserver   7002/udp
+afs3-vlserver   7003/tcp                        # volume location database
+afs3-vlserver   7003/udp
+afs3-kaserver   7004/tcp                        # AFS/Kerberos authentication
+afs3-kaserver   7004/udp
+afs3-volser     7005/tcp                        # volume managment server
+afs3-volser     7005/udp
+afs3-errors     7006/tcp                        # error interpretation service
+afs3-errors     7006/udp
+afs3-bos        7007/tcp                        # basic overseer process
+afs3-bos        7007/udp
+afs3-update     7008/tcp                        # server-to-server updater
+afs3-update     7008/udp
+afs3-rmtsys     7009/tcp                        # remote cache manager service
+afs3-rmtsys     7009/udp
+font-service    7100/tcp        xfs             # X Font Service
+font-service    7100/udp        xfs
+http-alt        8080/tcp        webcache        # WWW caching service
+http-alt        8080/udp
+puppet          8140/tcp                        # The Puppet master service
+bacula-dir      9101/tcp                        # Bacula Director
+bacula-dir      9101/udp
+bacula-fd       9102/tcp                        # Bacula File Daemon
+bacula-fd       9102/udp
+bacula-sd       9103/tcp                        # Bacula Storage Daemon
+bacula-sd       9103/udp
+xmms2           9667/tcp        # Cross-platform Music Multiplexing System
+xmms2           9667/udp
+nbd             10809/tcp                       # Linux Network Block Device
+zabbix-agent    10050/tcp                       # Zabbix Agent
+zabbix-agent    10050/udp
+zabbix-trapper  10051/tcp                       # Zabbix Trapper
+zabbix-trapper  10051/udp
+amanda          10080/tcp                       # amanda backup services
+amanda          10080/udp
+dicom           11112/tcp
+hkp             11371/tcp                       # OpenPGP HTTP Keyserver
+hkp             11371/udp
+bprd            13720/tcp                       # VERITAS NetBackup
+bprd            13720/udp
+bpdbm           13721/tcp                       # VERITAS NetBackup
+bpdbm           13721/udp
+bpjava-msvc     13722/tcp                       # BP Java MSVC Protocol
+bpjava-msvc     13722/udp
+vnetd           13724/tcp                       # Veritas Network Utility
+vnetd           13724/udp
+bpcd            13782/tcp                       # VERITAS NetBackup
+bpcd            13782/udp
+vopied          13783/tcp                       # VERITAS NetBackup
+vopied          13783/udp
+db-lsp          17500/tcp                       # Dropbox LanSync Protocol
+dcap            22125/tcp                       # dCache Access Protocol
+gsidcap         22128/tcp                       # GSI dCache Access Protocol
+wnn6            22273/tcp                       # wnn6
+wnn6            22273/udp
+
+#
+# Datagram Delivery Protocol services
+#
+rtmp            1/ddp                   # Routing Table Maintenance Protocol
+nbp             2/ddp                   # Name Binding Protocol
+echo            4/ddp                   # AppleTalk Echo Protocol
+zip             6/ddp                   # Zone Information Protocol
+
+#=========================================================================
+# The remaining port numbers are not as allocated by IANA.
+#=========================================================================
+
+# Kerberos (Project Athena/MIT) services
+# Note that these are for Kerberos v4, and are unofficial.  Sites running
+# v4 should uncomment these and comment out the v5 entries above.
+#
+kerberos4       750/udp         kerberos-iv kdc # Kerberos (server)
+kerberos4       750/tcp         kerberos-iv kdc
+kerberos-master 751/udp         kerberos_master # Kerberos authentication
+kerberos-master 751/tcp
+passwd-server   752/udp         passwd_server   # Kerberos passwd server
+krb-prop        754/tcp         krb_prop krb5_prop hprop # Kerberos slave propagation
+krbupdate       760/tcp         kreg            # Kerberos registration
+swat            901/tcp                         # swat
+kpop            1109/tcp                        # Pop with Kerberos
+knetd           2053/tcp                        # Kerberos de-multiplexor
+zephyr-srv      2102/udp                        # Zephyr server
+zephyr-clt      2103/udp                        # Zephyr serv-hm connection
+zephyr-hm       2104/udp                        # Zephyr hostmanager
+eklogin         2105/tcp                        # Kerberos encrypted rlogin
+# Hmmm. Are we using Kv4 or Kv5 now? Worrying.
+# The following is probably Kerberos v5  --- ajt@debian.org (11/02/2000)
+kx              2111/tcp                        # X over Kerberos
+iprop           2121/tcp                        # incremental propagation
+#
+# Unofficial but necessary (for NetBSD) services
+#
+supfilesrv      871/tcp                         # SUP server
+supfiledbg      1127/tcp                        # SUP debugging
+
+#
+# Services added for the Debian GNU/Linux distribution
+#
+poppassd        106/tcp                         # Eudora
+poppassd        106/udp
+moira-db        775/tcp         moira_db        # Moira database
+moira-update    777/tcp         moira_update    # Moira update protocol
+moira-ureg      779/udp         moira_ureg      # Moira user registration
+spamd           783/tcp                         # spamassassin daemon
+omirr           808/tcp         omirrd          # online mirror
+omirr           808/udp         omirrd
+customs         1001/tcp                        # pmake customs server
+customs         1001/udp
+skkserv         1178/tcp                        # skk jisho server port
+predict         1210/udp                        # predict -- satellite tracking
+rmtcfg          1236/tcp                        # Gracilis Packeten remote config server
+wipld           1300/tcp                        # Wipl network monitor
+xtel            1313/tcp                        # french minitel
+xtelw           1314/tcp                        # french minitel
+support         1529/tcp                        # GNATS
+cfinger         2003/tcp                        # GNU Finger
+frox            2121/tcp                        # frox: caching ftp proxy
+ninstall        2150/tcp                        # ninstall service
+ninstall        2150/udp
+zebrasrv        2600/tcp                        # zebra service
+zebra           2601/tcp                        # zebra vty
+ripd            2602/tcp                        # ripd vty (zebra)
+ripngd          2603/tcp                        # ripngd vty (zebra)
+ospfd           2604/tcp                        # ospfd vty (zebra)
+bgpd            2605/tcp                        # bgpd vty (zebra)
+ospf6d          2606/tcp                        # ospf6d vty (zebra)
+ospfapi         2607/tcp                        # OSPF-API
+isisd           2608/tcp                        # ISISd vty (zebra)
+afbackup        2988/tcp                        # Afbackup system
+afbackup        2988/udp
+afmbackup       2989/tcp                        # Afmbackup system
+afmbackup       2989/udp
+xtell           4224/tcp                        # xtell server
+fax             4557/tcp                        # FAX transmission service (old)
+hylafax         4559/tcp                        # HylaFAX client-server protocol (new)
+distmp3         4600/tcp                        # distmp3host daemon
+munin           4949/tcp        lrrd            # Munin
+enbd-cstatd     5051/tcp                        # ENBD client statd
+enbd-sstatd     5052/tcp                        # ENBD server statd
+pcrd            5151/tcp                        # PCR-1000 Daemon
+noclog          5354/tcp                        # noclogd with TCP (nocol)
+noclog          5354/udp                        # noclogd with UDP (nocol)
+hostmon         5355/tcp                        # hostmon uses TCP (nocol)
+hostmon         5355/udp                        # hostmon uses UDP (nocol)
+rplay           5555/udp                        # RPlay audio service
+nrpe            5666/tcp                        # Nagios Remote Plugin Executor
+nsca            5667/tcp                        # Nagios Agent - NSCA
+mrtd            5674/tcp                        # MRT Routing Daemon
+bgpsim          5675/tcp                        # MRT Routing Simulator
+canna           5680/tcp                        # cannaserver
+syslog-tls      6514/tcp                        # Syslog over TLS [RFC5425]
+sane-port       6566/tcp        sane saned      # SANE network scanner daemon
+ircd            6667/tcp                        # Internet Relay Chat
+zope-ftp        8021/tcp                        # zope management by ftp
+tproxy          8081/tcp                        # Transparent Proxy
+omniorb         8088/tcp                        # OmniORB
+omniorb         8088/udp
+clc-build-daemon 8990/tcp                       # Common lisp build daemon
+xinetd          9098/tcp
+mandelspawn     9359/udp        mandelbrot      # network mandelbrot
+git             9418/tcp                        # Git Version Control System
+zope            9673/tcp                        # zope server
+webmin          10000/tcp
+kamanda         10081/tcp                       # amanda backup services (Kerberos)
+kamanda         10081/udp
+amandaidx       10082/tcp                       # amanda backup services
+amidxtape       10083/tcp                       # amanda backup services
+smsqp           11201/tcp                       # Alamin SMS gateway
+smsqp           11201/udp
+xpilot          15345/tcp                       # XPilot Contact Port
+xpilot          15345/udp
+sgi-cmsd        17001/udp               # Cluster membership services daemon
+sgi-crsd        17002/udp
+sgi-gcd         17003/udp                       # SGI Group membership daemon
+sgi-cad         17004/tcp                       # Cluster Admin daemon
+isdnlog         20011/tcp                       # isdn logging system
+isdnlog         20011/udp
+vboxd           20012/tcp                       # voice box system
+vboxd           20012/udp
+binkp           24554/tcp                       # binkp fidonet protocol
+asp             27374/tcp                       # Address Search Protocol
+asp             27374/udp
+csync2          30865/tcp                       # cluster synchronization tool
+dircproxy       57000/tcp                       # Detachable IRC Proxy
+tfido           60177/tcp                       # fidonet EMSI over telnet
+fido            60179/tcp                       # fidonet EMSI over TCP
+
+# Local services
+user148@Serveur-Raspbian:/etc $ cat services | more
+# Network services, Internet style
+#
+# Note that it is presently the policy of IANA to assign a single well-known
+# port number for both TCP and UDP; hence, officially ports have two entries
+# even if the protocol doesn't support UDP operations.
+#
+# Updated from https://www.iana.org/assignments/service-names-port-numbers/service-names-port
+-numbers.xhtml .
+#
+# New ports will be added on request if they have been officially assigned
+# by IANA and used in the real-world or are needed by a debian package.
+# If you need a huge list of used numbers please install the nmap package.
+
+tcpmux          1/tcp                           # TCP port service multiplexer
+echo            7/tcp
+echo            7/udp
+discard         9/tcp           sink null
+discard         9/udp           sink null
+systat          11/tcp          users
+daytime         13/tcp
+daytime         13/udp
+netstat         15/tcp
+qotd            17/tcp          quote
+msp             18/tcp                          # message send protocol
+msp             18/udp
+chargen         19/tcp          ttytst source
+chargen         19/udp          ttytst source
+ftp-data        20/tcp
+ftp             21/tcp
+fsp             21/udp          fspd
+ssh             22/tcp                          # SSH Remote Login Protocol
+telnet          23/tcp
+smtp            25/tcp          mail
+time            37/tcp          timserver
+time            37/udp          timserver
+rlp             39/udp          resource        # resource location
+nameserver      42/tcp          name            # IEN 116
+whois           43/tcp          nicname
+tacacs          49/tcp                          # Login Host Protocol (TACACS)
+tacacs          49/udp
+domain          53/tcp                          # Domain Name Server
+domain          53/udp
+bootps          67/udp
+bootpc          68/udp
+tftp            69/udp
+gopher          70/tcp                          # Internet Gopher
+finger          79/tcp
+http            80/tcp          www             # WorldWideWeb HTTP
+link            87/tcp          ttylink
+kerberos        88/tcp          kerberos5 krb5 kerberos-sec     # Kerberos v5
+kerberos        88/udp          kerberos5 krb5 kerberos-sec     # Kerberos v5
+iso-tsap        102/tcp         tsap            # part of ISODE
+acr-nema        104/tcp         dicom           # Digital Imag. & Comm. 300
+pop3            110/tcp         pop-3           # POP version 3
+sunrpc          111/tcp         portmapper      # RPC 4.0 portmapper
+sunrpc          111/udp         portmapper
+auth            113/tcp         authentication tap ident
+sftp            115/tcp
+nntp            119/tcp         readnews untp   # USENET News Transfer Protocol
+ntp             123/udp                         # Network Time Protocol
+epmap           135/tcp         loc-srv         # DCE endpoint resolution
+epmap           135/udp         loc-srv
+netbios-ns      137/tcp                         # NETBIOS Name Service
+netbios-ns      137/udp
+netbios-dgm     138/tcp                         # NETBIOS Datagram Service
+netbios-dgm     138/udp
+netbios-ssn     139/tcp                         # NETBIOS session service
+netbios-ssn     139/udp
+imap2           143/tcp         imap            # Interim Mail Access P 2 and 4
+snmp            161/tcp                         # Simple Net Mgmt Protocol
+snmp            161/udp
+snmp-trap       162/tcp         snmptrap        # Traps for SNMP
+snmp-trap       162/udp         snmptrap
+cmip-man        163/tcp                         # ISO mgmt over IP (CMOT)
+cmip-man        163/udp
+cmip-agent      164/tcp
+cmip-agent      164/udp
+mailq           174/tcp                 # Mailer transport queue for Zmailer
+mailq           174/udp
+xdmcp           177/tcp                         # X Display Mgr. Control Proto
+xdmcp           177/udp
+nextstep        178/tcp         NeXTStep NextStep       # NeXTStep window
+nextstep        178/udp         NeXTStep NextStep       #  server
+bgp             179/tcp                         # Border Gateway Protocol
+irc             194/tcp                         # Internet Relay Chat
+irc             194/udp
+smux            199/tcp                         # SNMP Unix Multiplexer
+smux            199/udp
+at-rtmp         201/tcp                         # AppleTalk routing
+at-rtmp         201/udp
+at-nbp          202/tcp                         # AppleTalk name binding
+at-nbp          202/udp
+at-echo         204/tcp                         # AppleTalk echo
+at-echo         204/udp
+at-zis          206/tcp                         # AppleTalk zone information
+user148@Serveur-Raspbian:/etc $ cat -n passwd
+     1  root:x:0:0:root:/root:/bin/bash
+     2  daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+     3  bin:x:2:2:bin:/bin:/usr/sbin/nologin
+     4  sys:x:3:3:sys:/dev:/usr/sbin/nologin
+     5  sync:x:4:65534:sync:/bin:/bin/sync
+     6  games:x:5:60:games:/usr/games:/usr/sbin/nologin
+     7  man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+     8  lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+     9  mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+    10  news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+    11  uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+    12  proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+    13  www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+    14  backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+    15  list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+    16  irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+    17  gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+    18  nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+    19  _apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+    20  systemd-timesync:x:101:102:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+    21  systemd-network:x:102:103:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+    22  systemd-resolve:x:103:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+    23  pi:x:1000:1000:,,,:/home/pi:/bin/bash
+    24  ntp:x:104:110::/nonexistent:/usr/sbin/nologin
+    25  messagebus:x:105:111::/nonexistent:/usr/sbin/nologin
+    26  _rpc:x:106:65534::/run/rpcbind:/usr/sbin/nologin
+    27  statd:x:107:65534::/var/lib/nfs:/usr/sbin/nologin
+    28  sshd:x:108:65534::/run/sshd:/usr/sbin/nologin
+    29  avahi:x:109:113:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/usr/sbin/nologin
+    30  lightdm:x:110:114:Light Display Manager:/var/lib/lightdm:/bin/false
+    31  avahi-autoipd:x:111:116:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+    32  Debian-exim:x:112:117::/var/spool/exim4:/usr/sbin/nologin
+    33  uuidd:x:113:118::/run/uuidd:/usr/sbin/nologin
+    34  systemd-coredump:x:996:996:systemd Core Dumper:/:/usr/sbin/nologin
+    35  mosquitto:x:114:119::/var/lib/mosquitto:/usr/sbin/nologin
+    36  user00:x:1021:1021::/home/user00:/bin/bash
+    37  user01:x:1222:1222::/home/user01:/bin/bash
+    38  user02:x:1223:1223::/home/user02:/bin/bash
+    39  user03:x:1224:1224::/home/user03:/bin/bash
+    40  user04:x:1225:1225::/home/user04:/bin/bash
+    41  user05:x:1226:1226::/home/user05:/bin/bash
+    42  user06:x:1227:1227::/home/user06:/bin/bash
+    43  user07:x:1228:1228::/home/user07:/bin/bash
+    44  user08:x:1229:1229::/home/user08:/bin/bash
+    45  user09:x:1230:1230::/home/user09:/bin/bash
+    46  user10:x:1231:1231::/home/user10:/bin/bash
+    47  user11:x:1232:1232::/home/user11:/bin/bash
+    48  user12:x:1233:1233::/home/user12:/bin/bash
+    49  user13:x:1234:1234::/home/user13:/bin/bash
+    50  user14:x:1235:1235::/home/user14:/bin/bash
+    51  user15:x:1236:1236::/home/user15:/bin/bash
+    52  user16:x:1237:1237::/home/user16:/bin/bash
+    53  user17:x:1238:1238::/home/user17:/bin/bash
+    54  user18:x:1239:1239::/home/user18:/bin/bash
+    55  user19:x:1240:1240::/home/user19:/bin/bash
+    56  user20:x:1241:1241::/home/user20:/bin/bash
+    57  user21:x:1242:1242::/home/user21:/bin/bash
+    58  user22:x:1243:1243::/home/user22:/bin/bash
+    59  user23:x:1244:1244::/home/user23:/bin/bash
+    60  user24:x:1245:1245::/home/user24:/bin/bash
+    61  user25:x:1246:1246::/home/user25:/bin/bash
+    62  user26:x:1247:1247::/home/user26:/bin/bash
+    63  user27:x:1248:1248::/home/user27:/bin/bash
+    64  user28:x:1249:1249::/home/user28:/bin/bash
+    65  user29:x:1250:1250::/home/user29:/bin/bash
+    66  user30:x:1251:1251::/home/user30:/bin/bash
+    67  user31:x:1252:1252::/home/user31:/bin/bash
+    68  user32:x:1253:1253::/home/user32:/bin/bash
+    69  user33:x:1254:1254::/home/user33:/bin/bash
+    70  user34:x:1255:1255::/home/user34:/bin/bash
+    71  user35:x:1256:1256::/home/user35:/bin/bash
+    72  user36:x:1257:1257::/home/user36:/bin/bash
+    73  user37:x:1258:1258::/home/user37:/bin/bash
+    74  user38:x:1259:1259::/home/user38:/bin/bash
+    75  user39:x:1260:1260::/home/user39:/bin/bash
+    76  user40:x:1261:1261::/home/user40:/bin/bash
+    77  user41:x:1262:1262::/home/user41:/bin/bash
+    78  user42:x:1263:1263::/home/user42:/bin/bash
+    79  user43:x:1264:1264::/home/user43:/bin/bash
+    80  user44:x:1265:1265::/home/user44:/bin/bash
+    81  user45:x:1266:1266::/home/user45:/bin/bash
+    82  user46:x:1267:1267::/home/user46:/bin/bash
+    83  user47:x:1268:1268::/home/user47:/bin/bash
+    84  user48:x:1269:1269::/home/user48:/bin/bash
+    85  user49:x:1270:1270::/home/user49:/bin/bash
+    86  user50:x:1271:1271::/home/user50:/bin/bash
+    87  user51:x:1272:1272::/home/user51:/bin/bash
+    88  user52:x:1273:1273::/home/user52:/bin/bash
+    89  user53:x:1274:1274::/home/user53:/bin/bash
+    90  user54:x:1275:1275::/home/user54:/bin/bash
+    91  user55:x:1276:1276::/home/user55:/bin/bash
+    92  user56:x:1277:1277::/home/user56:/bin/bash
+    93  user57:x:1278:1278::/home/user57:/bin/bash
+    94  user58:x:1279:1279::/home/user58:/bin/bash
+    95  user59:x:1280:1280::/home/user59:/bin/bash
+    96  user60:x:1281:1281::/home/user60:/bin/bash
+    97  user61:x:1282:1282::/home/user61:/bin/bash
+    98  user62:x:1283:1283::/home/user62:/bin/bash
+    99  user63:x:1284:1284::/home/user63:/bin/bash
+   100  user64:x:1285:1285::/home/user64:/bin/bash
+   101  user65:x:1286:1286::/home/user65:/bin/bash
+   102  user66:x:1287:1287::/home/user66:/bin/bash
+   103  user67:x:1288:1288::/home/user67:/bin/bash
+   104  user68:x:1289:1289::/home/user68:/bin/bash
+   105  user69:x:1290:1290::/home/user69:/bin/bash
+   106  user70:x:1291:1291::/home/user70:/bin/bash
+   107  user71:x:1292:1292::/home/user71:/bin/bash
+   108  user72:x:1293:1293::/home/user72:/bin/bash
+   109  user73:x:1294:1294::/home/user73:/bin/bash
+   110  user74:x:1295:1295::/home/user74:/bin/bash
+   111  user75:x:1296:1296::/home/user75:/bin/bash
+   112  user76:x:1297:1297::/home/user76:/bin/bash
+   113  user77:x:1298:1298::/home/user77:/bin/bash
+   114  user78:x:1299:1299::/home/user78:/bin/bash
+   115  user79:x:1300:1300::/home/user79:/bin/bash
+   116  user80:x:1301:1301::/home/user80:/bin/bash
+   117  user81:x:1302:1302::/home/user81:/bin/bash
+   118  user82:x:1303:1303::/home/user82:/bin/bash
+   119  user83:x:1304:1304::/home/user83:/bin/bash
+   120  user84:x:1305:1305::/home/user84:/bin/bash
+   121  user85:x:1306:1306::/home/user85:/bin/bash
+   122  user86:x:1307:1307::/home/user86:/bin/bash
+   123  user87:x:1308:1308::/home/user87:/bin/bash
+   124  user88:x:1309:1309::/home/user88:/bin/bash
+   125  user89:x:1310:1310::/home/user89:/bin/bash
+   126  user90:x:1311:1311::/home/user90:/bin/bash
+   127  user91:x:1312:1312::/home/user91:/bin/bash
+   128  user92:x:1313:1313::/home/user92:/bin/bash
+   129  user93:x:1314:1314::/home/user93:/bin/bash
+   130  user94:x:1315:1315::/home/user94:/bin/bash
+   131  user95:x:1316:1316::/home/user95:/bin/bash
+   132  user96:x:1317:1317::/home/user96:/bin/bash
+   133  user97:x:1318:1318::/home/user97:/bin/bash
+   134  user98:x:1319:1319::/home/user98:/bin/bash
+   135  user99:x:1320:1320::/home/user99:/bin/bash
+   136  user100:x:1321:1321::/home/user100:/bin/bash
+   137  user201:x:1322:1322::/home/user201:/bin/bash
+   138  user202:x:1323:1323::/home/user202:/bin/bash
+   139  user203:x:1324:1324::/home/user203:/bin/bash
+   140  user204:x:1325:1325::/home/user204:/bin/bash
+   141  user205:x:1326:1326::/home/user205:/bin/bash
+   142  user206:x:1327:1327::/home/user206:/bin/bash
+   143  user207:x:1328:1328::/home/user207:/bin/bash
+   144  user208:x:1329:1329::/home/user208:/bin/bash
+   145  user209:x:1330:1330::/home/user209:/bin/bash
+   146  user210:x:1331:1331::/home/user210:/bin/bash
+   147  user211:x:1332:1332::/home/user211:/bin/bash
+   148  user212:x:1333:1333::/home/user212:/bin/bash
+   149  user213:x:1334:1334::/home/user213:/bin/bash
+   150  user214:x:1335:1335::/home/user214:/bin/bash
+   151  user215:x:1336:1336::/home/user215:/bin/bash
+   152  user216:x:1337:1337::/home/user216:/bin/bash
+   153  user217:x:1338:1338::/home/user217:/bin/bash
+   154  user218:x:1339:1339::/home/user218:/bin/bash
+   155  user219:x:1340:1340::/home/user219:/bin/bash
+   156  user220:x:1341:1341::/home/user220:/bin/bash
+   157  user221:x:1342:1342::/home/user221:/bin/bash
+   158  user222:x:1343:1343::/home/user222:/bin/bash
+   159  user223:x:1344:1344::/home/user223:/bin/bash
+   160  user224:x:1345:1345::/home/user224:/bin/bash
+   161  user225:x:1346:1346::/home/user225:/bin/bash
+   162  user226:x:1347:1347::/home/user226:/bin/bash
+   163  user227:x:1348:1348::/home/user227:/bin/bash
+   164  user228:x:1349:1349::/home/user228:/bin/bash
+   165  user229:x:1350:1350::/home/user229:/bin/bash
+   166  user230:x:1351:1351::/home/user230:/bin/bash
+   167  user231:x:1352:1352::/home/user231:/bin/bash
+   168  user232:x:1353:1353::/home/user232:/bin/bash
+   169  user233:x:1354:1354::/home/user233:/bin/bash
+   170  user234:x:1355:1355::/home/user234:/bin/bash
+   171  user235:x:1356:1356::/home/user235:/bin/bash
+   172  user236:x:1357:1357::/home/user236:/bin/bash
+   173  user237:x:1358:1358::/home/user237:/bin/bash
+   174  user238:x:1359:1359::/home/user238:/bin/bash
+   175  user239:x:1360:1360::/home/user239:/bin/bash
+   176  user240:x:1361:1361::/home/user240:/bin/bash
+   177  user241:x:1362:1362::/home/user241:/bin/bash
+   178  user242:x:1363:1363::/home/user242:/bin/bash
+   179  user243:x:1364:1364::/home/user243:/bin/bash
+   180  user244:x:1365:1365::/home/user244:/bin/bash
+   181  user245:x:1366:1366::/home/user245:/bin/bash
+   182  user246:x:1367:1367::/home/user246:/bin/bash
+   183  user247:x:1368:1368::/home/user247:/bin/bash
+   184  user248:x:1369:1369::/home/user248:/bin/bash
+   185  user249:x:1370:1370::/home/user249:/bin/bash
+   186  user250:x:1371:1371::/home/user250:/bin/bash
+   187  user251:x:1372:1372::/home/user251:/bin/bash
+   188  user252:x:1373:1373::/home/user252:/bin/bash
+   189  user253:x:1374:1374::/home/user253:/bin/bash
+   190  user254:x:1375:1375::/home/user254:/bin/bash
+   191  user255:x:1376:1376::/home/user255:/bin/bash
+   192  user256:x:1377:1377::/home/user256:/bin/bash
+   193  user257:x:1378:1378::/home/user257:/bin/bash
+   194  user258:x:1379:1379::/home/user258:/bin/bash
+   195  user259:x:1380:1380::/home/user259:/bin/bash
+   196  user260:x:1381:1381::/home/user260:/bin/bash
+   197  user261:x:1382:1382::/home/user261:/bin/bash
+   198  user262:x:1383:1383::/home/user262:/bin/bash
+   199  user263:x:1384:1384::/home/user263:/bin/bash
+   200  user264:x:1385:1385::/home/user264:/bin/bash
+   201  user265:x:1386:1386::/home/user265:/bin/bash
+   202  user266:x:1387:1387::/home/user266:/bin/bash
+   203  user267:x:1388:1388::/home/user267:/bin/bash
+   204  user268:x:1389:1389::/home/user268:/bin/bash
+   205  user269:x:1390:1390::/home/user269:/bin/bash
+   206  user270:x:1391:1391::/home/user270:/bin/bash
+   207  user271:x:1392:1392::/home/user271:/bin/bash
+   208  user272:x:1393:1393::/home/user272:/bin/bash
+   209  user273:x:1394:1394::/home/user273:/bin/bash
+   210  user274:x:1395:1395::/home/user274:/bin/bash
+   211  user275:x:1396:1396::/home/user275:/bin/bash
+   212  user276:x:1397:1397::/home/user276:/bin/bash
+   213  user277:x:1398:1398::/home/user277:/bin/bash
+   214  user278:x:1399:1399::/home/user278:/bin/bash
+   215  user279:x:1400:1400::/home/user279:/bin/bash
+   216  user280:x:1401:1401::/home/user280:/bin/bash
+   217  user281:x:1402:1402::/home/user281:/bin/bash
+   218  user282:x:1403:1403::/home/user282:/bin/bash
+   219  user283:x:1404:1404::/home/user283:/bin/bash
+   220  user284:x:1405:1405::/home/user284:/bin/bash
+   221  user285:x:1406:1406::/home/user285:/bin/bash
+   222  user286:x:1407:1407::/home/user286:/bin/bash
+   223  user287:x:1408:1408::/home/user287:/bin/bash
+   224  user288:x:1409:1409::/home/user288:/bin/bash
+   225  user289:x:1410:1410::/home/user289:/bin/bash
+   226  user290:x:1411:1411::/home/user290:/bin/bash
+   227  user291:x:1412:1412::/home/user291:/bin/bash
+   228  user292:x:1413:1413::/home/user292:/bin/bash
+   229  user293:x:1414:1414::/home/user293:/bin/bash
+   230  user294:x:1415:1415::/home/user294:/bin/bash
+   231  user295:x:1416:1416::/home/user295:/bin/bash
+   232  user296:x:1417:1417::/home/user296:/bin/bash
+   233  user297:x:1418:1418::/home/user297:/bin/bash
+   234  user298:x:1419:1419::/home/user298:/bin/bash
+   235  user299:x:1420:1420::/home/user299:/bin/bash
+   236  user300:x:1421:1421::/home/user300:/bin/bash
+   237  user101:x:1422:1422::/home/user101:/bin/bash
+   238  user102:x:1423:1423::/home/user102:/bin/bash
+   239  user103:x:1424:1424::/home/user103:/bin/bash
+   240  user104:x:1425:1425::/home/user104:/bin/bash
+   241  user105:x:1426:1426::/home/user105:/bin/bash
+   242  user106:x:1427:1427::/home/user106:/bin/bash
+   243  user107:x:1428:1428::/home/user107:/bin/bash
+   244  user108:x:1429:1429::/home/user108:/bin/bash
+   245  user109:x:1430:1430::/home/user109:/bin/bash
+   246  user110:x:1431:1431::/home/user110:/bin/bash
+   247  user111:x:1432:1432::/home/user111:/bin/bash
+   248  user112:x:1433:1433::/home/user112:/bin/bash
+   249  user113:x:1434:1434::/home/user113:/bin/bash
+   250  user114:x:1435:1435::/home/user114:/bin/bash
+   251  user115:x:1436:1436::/home/user115:/bin/bash
+   252  user116:x:1437:1437::/home/user116:/bin/bash
+   253  user117:x:1438:1438::/home/user117:/bin/bash
+   254  user118:x:1439:1439::/home/user118:/bin/bash
+   255  user119:x:1440:1440::/home/user119:/bin/bash
+   256  user120:x:1441:1441::/home/user120:/bin/bash
+   257  user121:x:1442:1442::/home/user121:/bin/bash
+   258  user122:x:1443:1443::/home/user122:/bin/bash
+   259  user123:x:1444:1444::/home/user123:/bin/bash
+   260  user124:x:1445:1445::/home/user124:/bin/bash
+   261  user125:x:1446:1446::/home/user125:/bin/bash
+   262  user126:x:1447:1447::/home/user126:/bin/bash
+   263  user127:x:1448:1448::/home/user127:/bin/bash
+   264  user128:x:1449:1449::/home/user128:/bin/bash
+   265  user129:x:1450:1450::/home/user129:/bin/bash
+   266  user130:x:1451:1451::/home/user130:/bin/bash
+   267  user131:x:1452:1452::/home/user131:/bin/bash
+   268  user132:x:1453:1453::/home/user132:/bin/bash
+   269  user133:x:1454:1454::/home/user133:/bin/bash
+   270  user134:x:1455:1455::/home/user134:/bin/bash
+   271  user135:x:1456:1456::/home/user135:/bin/bash
+   272  user136:x:1457:1457::/home/user136:/bin/bash
+   273  user137:x:1458:1458::/home/user137:/bin/bash
+   274  user138:x:1459:1459::/home/user138:/bin/bash
+   275  user139:x:1460:1460::/home/user139:/bin/bash
+   276  user140:x:1461:1461::/home/user140:/bin/bash
+   277  user141:x:1462:1462::/home/user141:/bin/bash
+   278  user142:x:1463:1463::/home/user142:/bin/bash
+   279  user143:x:1464:1464::/home/user143:/bin/bash
+   280  user144:x:1465:1465::/home/user144:/bin/bash
+   281  user145:x:1466:1466::/home/user145:/bin/bash
+   282  user146:x:1467:1467::/home/user146:/bin/bash
+   283  user147:x:1468:1468::/home/user147:/bin/bash
+   284  user148:x:1469:1469::/home/user148:/bin/bash
+   285  user149:x:1470:1470::/home/user149:/bin/bash
+   286  user150:x:1471:1471::/home/user150:/bin/bash
+   287  user151:x:1472:1472::/home/user151:/bin/bash
+   288  user152:x:1473:1473::/home/user152:/bin/bash
+   289  user153:x:1474:1474::/home/user153:/bin/bash
+   290  user154:x:1475:1475::/home/user154:/bin/bash
+   291  user155:x:1476:1476::/home/user155:/bin/bash
+   292  user156:x:1477:1477::/home/user156:/bin/bash
+   293  user157:x:1478:1478::/home/user157:/bin/bash
+   294  user158:x:1479:1479::/home/user158:/bin/bash
+   295  user159:x:1480:1480::/home/user159:/bin/bash
+   296  user160:x:1481:1481::/home/user160:/bin/bash
+   297  user161:x:1482:1482::/home/user161:/bin/bash
+   298  user162:x:1483:1483::/home/user162:/bin/bash
+   299  user163:x:1484:1484::/home/user163:/bin/bash
+   300  user164:x:1485:1485::/home/user164:/bin/bash
+   301  user165:x:1486:1486::/home/user165:/bin/bash
+   302  user166:x:1487:1487::/home/user166:/bin/bash
+   303  user167:x:1488:1488::/home/user167:/bin/bash
+   304  user168:x:1489:1489::/home/user168:/bin/bash
+   305  user169:x:1490:1490::/home/user169:/bin/bash
+   306  user170:x:1491:1491::/home/user170:/bin/bash
+   307  user171:x:1492:1492::/home/user171:/bin/bash
+   308  user172:x:1493:1493::/home/user172:/bin/bash
+   309  user173:x:1494:1494::/home/user173:/bin/bash
+   310  user174:x:1495:1495::/home/user174:/bin/bash
+   311  user175:x:1496:1496::/home/user175:/bin/bash
+   312  user176:x:1497:1497::/home/user176:/bin/bash
+   313  user177:x:1498:1498::/home/user177:/bin/bash
+   314  user178:x:1499:1499::/home/user178:/bin/bash
+   315  user179:x:1500:1500::/home/user179:/bin/bash
+   316  user180:x:1501:1501::/home/user180:/bin/bash
+   317  user181:x:1502:1502::/home/user181:/bin/bash
+   318  user182:x:1503:1503::/home/user182:/bin/bash
+   319  user183:x:1504:1504::/home/user183:/bin/bash
+   320  user184:x:1505:1505::/home/user184:/bin/bash
+   321  user185:x:1506:1506::/home/user185:/bin/bash
+   322  user186:x:1507:1507::/home/user186:/bin/bash
+   323  user187:x:1508:1508::/home/user187:/bin/bash
+   324  user188:x:1509:1509::/home/user188:/bin/bash
+   325  user189:x:1510:1510::/home/user189:/bin/bash
+   326  user190:x:1511:1511::/home/user190:/bin/bash
+   327  user191:x:1512:1512::/home/user191:/bin/bash
+   328  user192:x:1513:1513::/home/user192:/bin/bash
+   329  user193:x:1514:1514::/home/user193:/bin/bash
+   330  user194:x:1515:1515::/home/user194:/bin/bash
+   331  user195:x:1516:1516::/home/user195:/bin/bash
+   332  user196:x:1517:1517::/home/user196:/bin/bash
+   333  user197:x:1518:1518::/home/user197:/bin/bash
+   334  user198:x:1519:1519::/home/user198:/bin/bash
+   335  user199:x:1520:1520::/home/user199:/bin/bash
+   336  user200:x:1521:1521::/home/user200:/bin/bash
+user148@Serveur-Raspbian:/etc $ cd X11/
+user148@Serveur-Raspbian:/etc/X11 $ ls
+app-defaults             fonts    rgb.txt  xkb     Xreset.d    Xsession    Xsession.options
+default-display-manager  openbox  xinit    Xreset  Xresources  Xsession.d  XvMCConfig
+user148@Serveur-Raspbian:/etc/X11 $ ls -a
+.             default-display-manager  rgb.txt  Xreset      Xsession          XvMCConfig
+..            fonts                    xinit    Xreset.d    Xsession.d
+app-defaults  openbox                  xkb      Xresources  Xsession.options
+user148@Serveur-Raspbian:/etc/X11 $ man cp
+user148@Serveur-Raspbian:/etc/X11 $ cd /home/user148/toto/
+user148@Serveur-Raspbian:~/toto $ cd ..
+user148@Serveur-Raspbian:~ $ ls
+toto  toto2
+user148@Serveur-Raspbian:~ $ touch coucou.txt
+user148@Serveur-Raspbian:~ $ ls
+coucou.txt  toto  toto2
+user148@Serveur-Raspbian:~ $ mv coucou.txt coucou.test
+user148@Serveur-Raspbian:~ $ ls
+coucou.test  toto  toto2
+user148@Serveur-Raspbian:~ $ rm coucou.test
+user148@Serveur-Raspbian:~ $ ls
+toto  toto2
+user148@Serveur-Raspbian:~ $

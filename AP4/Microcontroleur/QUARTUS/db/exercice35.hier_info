@@ -1,0 +1,11 @@
+|exercice35
+clk => Qsig.CLK
+J => process_0.IN0
+J => process_0.IN0
+K => process_0.IN1
+K => process_0.IN1
+rst => Qsig.ACLR
+Q << Qsig.DB_MAX_OUTPUT_PORT_TYPE
+nonQ << Qsig.DB_MAX_OUTPUT_PORT_TYPE
+
+

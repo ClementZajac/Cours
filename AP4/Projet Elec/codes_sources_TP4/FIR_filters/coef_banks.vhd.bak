@@ -1,0 +1,14 @@
+-- ================================================================================================
+-- écrit par Jean-Marc Capron
+-- 31 juillet 2014
+--
+-- Ce fichier décrit deux jeux de coefficients pouvant être utilisés
+
+--un filtre FIR à 37 coefficients symétriques (soit 19 coefficients différents),
+-- le signal d'entrée du filtre est sur 16 bits,
+-- les coefficients sont également sur 16 bits (déclarés comme un tableau de 19 x 16 bits).
+-- ================================================================================================
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee. Std_logic_arith.all;

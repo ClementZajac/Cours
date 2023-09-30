@@ -1,0 +1,42 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Thu Dec 09 09:37:41 2021
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x000004
+                   .cinit    romdata   0x000004    program   0x000002
+                MAIN_PROG       code   0x000006    program   0x00001c
+                  GPR_VAR      udata   0x000060       data   0x000003
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000021      
+            34 out of 33048 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    DEBUT   0x000006    program     static C:\Users\dutoi\OneDrive - JUNIA Grande école d'ingénieurs\Etudes\ISEN\AP3\Electronique\MPLAB_project\TP1\ex2_TP1.X\main.asm
+                       L1   0x000012    program     static C:\Users\dutoi\OneDrive - JUNIA Grande école d'ingénieurs\Etudes\ISEN\AP3\Electronique\MPLAB_project\TP1\ex2_TP1.X\main.asm
+             incrementeur   0x000061       data     static C:\Users\dutoi\OneDrive - JUNIA Grande école d'ingénieurs\Etudes\ISEN\AP3\Electronique\MPLAB_project\TP1\ex2_TP1.X\main.asm
+                 longueur   0x000062       data     static C:\Users\dutoi\OneDrive - JUNIA Grande école d'ingénieurs\Etudes\ISEN\AP3\Electronique\MPLAB_project\TP1\ex2_TP1.X\main.asm
+                    somme   0x000060       data     static C:\Users\dutoi\OneDrive - JUNIA Grande école d'ingénieurs\Etudes\ISEN\AP3\Electronique\MPLAB_project\TP1\ex2_TP1.X\main.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    DEBUT   0x000006    program     static C:\Users\dutoi\OneDrive - JUNIA Grande école d'ingénieurs\Etudes\ISEN\AP3\Electronique\MPLAB_project\TP1\ex2_TP1.X\main.asm
+                       L1   0x000012    program     static C:\Users\dutoi\OneDrive - JUNIA Grande école d'ingénieurs\Etudes\ISEN\AP3\Electronique\MPLAB_project\TP1\ex2_TP1.X\main.asm
+                    somme   0x000060       data     static C:\Users\dutoi\OneDrive - JUNIA Grande école d'ingénieurs\Etudes\ISEN\AP3\Electronique\MPLAB_project\TP1\ex2_TP1.X\main.asm
+             incrementeur   0x000061       data     static C:\Users\dutoi\OneDrive - JUNIA Grande école d'ingénieurs\Etudes\ISEN\AP3\Electronique\MPLAB_project\TP1\ex2_TP1.X\main.asm
+                 longueur   0x000062       data     static C:\Users\dutoi\OneDrive - JUNIA Grande école d'ingénieurs\Etudes\ISEN\AP3\Electronique\MPLAB_project\TP1\ex2_TP1.X\main.asm
+
+

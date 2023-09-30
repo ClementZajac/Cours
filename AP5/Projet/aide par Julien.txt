@@ -1,0 +1,27 @@
+Des missions d'un Scrum master:
+-voir la techno
+-référencer ce que les gens savent faire
+-faire attention au temps restant
+-quels sont les produits de maquettage ?
+-les couleurs UX/UI
+-Quel tache arrive apres laquelle ?
+-Utiliser la methode poker planning master pour chiffrage
+-des que le CM à listé les tâches, chacun note la diffficulté des taches pour soir, et en discuter si gros ecarts
+-gerer l'humeur de l'équipe par apport au projet (orage, pluie...)
+
+Des missions d'un PO:
+-faire des maquettes pour le client, faire voir ce qu'on sait faire, en disant ce qu'on a déja fait
+-pourquoi nous ?- croquis / esquise
+-priorisation des taches -> Avoir une v1 et v2
+-validation
+-gestion temps homme
+
+Outils :
+-Trello/Mural -> étiquetets par couleur pour l'importance
+-BL - SPRINT - EN COURS - EN COURS EN SOUFFRANCE (par rapport au temps si ya du retard) - BLOQUANT - DONE - CORBEILLE
+-tableau de chiffrage temps dépense / restant
+-avancement du temps de travail par sprint
+
+Autre:
+-Penser a avoir une upgrade à chaque sprint -> qq ch de visuel
+-proposer de changer de scrum master

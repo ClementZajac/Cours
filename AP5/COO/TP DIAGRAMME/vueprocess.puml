@@ -1,0 +1,53 @@
+@startuml
+
+
+note over Client :
+note over Caisse :
+note over Conseiller :
+note over Responsable :
+
+alt
+
+    alt
+        Responsable -> Caisse: Initialiser la caisse
+    else
+        Conseiller -> Caisse: Initialiser la caisse
+    end
+
+    loop le client a des articles
+        Client -> Caisse : Scanner des articles
+        activate Caisse
+        Caisse -> Client : Ajouter le prix de l'article au total
+        deactivate Caisse
+    end
+    
+    Client -> Caisse : Passer au paiement
+
+    alt(Authentification)
+
+    end
+
+    loop le client n'a pas choisi de mode de paiement
+        Caisse -> Client : Proposer les modes de paiement
+
+        alt Si le client choisi un mode de paiement valide
+            Client -> Caisse : Choisi le mode de paiement
+        end
+    end
+
+    Caisse -> Client : proposer de saisir des bons de réduction
+
+    alt le client veut scanner des bons de réduction
+        loop le client veut scanner des bons de réduction
+            Client -> Caisse : Scanner les bons de réduction
+        end
+    end 
+
+    Client -> Caisse : Payer
+    Caisse -> Client : Delivrer le ticket
+
+else Erreur
+
+    Caisse -> Conseiller: Authentication Failure
+end
+@enduml

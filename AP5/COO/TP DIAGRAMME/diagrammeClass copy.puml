@@ -1,0 +1,64 @@
+@startuml
+abstract        abstract
+abstract class  "abstract class"
+annotation      annotation
+circle          circle
+()              circle_short_form
+class           class
+diamond         diamond
+<>              diamond_short_form
+entity          entity
+enum            enum
+interface       interface
+
+
+class Ecrivain{}
+class Oeuvre{}
+Oeuvre "1" -- "1..*" Ecrivain
+
+abstract Personne{}
+class Etudiant{}
+class Professeur{}
+Personne <|-- Etudiant
+Personne <|-- Professeur
+
+class Rectangle{
+    - calculerSurface() : int
+    - calculerPerimetre() : int
+    - translater(int dx, int dy) : void
+}
+class Point{
+    - x : int
+    - y : int
+}
+Rectangle "0..*" -- "0..*" Point
+
+class Cinema {}
+class Salle{}
+class Film{}
+class Projection{
+    - date : Date
+    - heure : Heure
+}
+Cinema "1" -- "1..*" Salle
+Salle "1..*" -- "1..1" Projection
+Projection "1..*" -- "1" Film
+
+class Facteur{}
+class Zone{}
+class Recommande{}
+class Lettre{}
+class Colis{}
+class Destinataire{}
+
+Facteur "1..*" -- "1..*" Zone
+Zone "1..*" -- "1..1" Recommande
+Recommande "1..*" -- "1..1" Destinataire
+Recommande "1..*" -- "1..1" Facteur
+Recommande <|-- Lettre
+Recommande <|-- Colis
+
+
+
+
+@enduml

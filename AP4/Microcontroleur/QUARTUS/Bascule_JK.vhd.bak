@@ -1,0 +1,32 @@
+--Bascule_JK
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Bascule_JK is
+    port(clk,J,K,rst:in std_logic;
+        Q,nonQ:out std_logic);
+end Bascule_JK;
+
+architecture bascJK of Bascule_JK is
+signal Qsig:std_logic;
+begin
+    process(rst,clk)
+    begin
+        if rst='0' then
+            Qsig <= '0';
+        elsif (clk'event and clk='1') then
+            if(J='0' and K='0') then
+                Qsig <= Qsig;
+            elsif (J='0' and K='1') then
+                Qsig <= '0';
+            else
+                Qsig <= not(Qsig);
+            end if;
+        else
+            Qsig <= Qsig;
+        end if;
+    end process;
+    Q <= Qsig;
+    nonQ = not(Qsig);
+end bascJK;

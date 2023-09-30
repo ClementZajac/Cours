@@ -1,0 +1,182 @@
+
+.global{
+	position: fixed;
+	height:90%;
+	width: 100%;
+	overflow: hidden;
+}
+
+
+.global2{
+	position: relative;
+	height:90%;
+	width: 100%;
+	overflow: hidden;
+}
+
+
+.globalSec{
+	position: fixed;
+	height:90%;
+	width: 100%;
+	overflow: hidden;
+}
+.grille{
+	padding: 10px;
+	position: relative;
+	height: 50%;
+	width: 50%;
+	float: left;
+}
+
+.sousGrille{	
+	position: relative;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	border: 3px solid rgb(176, 196, 222);
+	border-radius: 10px;
+	background-color: rgb(254, 254, 226);
+	box-shadow: 5px 5px 5px grey;
+}
+
+.grilleLight{
+	width: 50%;
+	float: left;
+	margin-top: -70px;
+	pointer-events: none;
+}
+.grilleLightSecDet{
+	height: 25%;
+	width: 50%;
+	float: left;
+	margin-top: 20vh;
+}
+.grilleLightSec{
+	height: 25%;
+	width: 50%;
+	float: left;
+	margin-top: 2vh;
+}
+
+.grilleLightSystemDetail{
+	width: 40%;
+	float: left;
+	margin-left: 5%;
+    margin-right: 5%;
+	pointer-events: none;
+}
+
+.grilleFullWeightSystemDetail{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.globalGrilleSystemDetail{
+	margin-left: 30px;
+    margin-right: 30px;
+}
+
+.grilleLightResDet{
+	height: 25%;
+	width: 50%;
+	float: left;
+	margin-top: 30vh;
+}
+.grilleLightRes{
+	height: 25%;
+	width: 50%;
+	float: left;
+	margin-top: 10vh;
+}
+
+.grilleFullWeight{
+	width: 100%;
+	float: left;
+	margin-top: -50px;
+}
+.contentGrilleFullWeight{
+	margin-left: auto;
+    margin-right: auto;
+	width: 35%;
+}
+
+h2{
+	font-size: 25px;
+	margin-left: 10px;
+	text-decoration: underline;
+}
+
+h3{
+	font-size: 20px;
+	text-decoration: underline;
+	margin-top: 20px;
+}
+
+h4{
+	font-size: 17px;
+	text-decoration: underline;
+	margin-top: 20px;
+}
+
+.topResumeElementTitle{
+	float: left;
+
+}
+
+.topResumeElementLink{
+	float: right;
+	margin-top: 3px;
+	margin-right: 3px;
+}
+
+.clear{
+	clear: both;
+}
+.MAJ{
+	text-align: center;
+}
+.Valeur{
+	margin-top: 5%;
+	text-align: center;
+}
+.monbackground{
+	background-color: rgb(176, 196, 222);
+}
+
+@media only screen and (min-width: 992px) {
+	.navbar .navbar-nav .nav-item .nav-link {
+	  padding: 0 0.5em;
+	}
+	.navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
+	  border-right: 2px solid rgba(37, 37, 37, 0.3);
+	}
+  }
+
+.navbar-text{
+	padding: 0 0.5em;
+}
+
+.nav-link{
+	text-decoration: underline;
+}
+
+.nav-icon{
+	margin-right: 10px;
+}
+
+.page{
+	margin-left: 20px;
+}
+
+.monTableau{
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.systemDetailGrid{
+	height: 40%;
+}
+.action{
+	text-align: center;}

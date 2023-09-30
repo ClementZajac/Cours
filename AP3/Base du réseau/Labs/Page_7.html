@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" type="text/css" href="Skin/base.css" />
+<link rel="stylesheet" type="text/css" href="Skin/content.css" />
+<link rel="stylesheet" type="text/css" href="Skin/nav.css" />
+<link rel="stylesheet" type="text/css" href="Skin/style.css" />
+<link rel="stylesheet" type="text/css" href="Skin/bootstrap.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title><b>Lab</b> adresses Ethernet unicast et broadcast - Manipulation de protocoles</title>
+<link rel="shortcut icon" href="Skin/favicon.ico" type="image/x-icon" />
+<!--[if lt IE 9]><script type="text/javascript" src="Skin/exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="Skin/jquery.js"></script>
+<script type="text/javascript" src="Skin/exe_jquery.js"></script>
+<script type="text/javascript" src="Skin/common_i18n.js"></script>
+<script type="text/javascript" src="Skin/common.js"></script>
+<script type="text/javascript" src="Skin/exe_html5.js"></script>
+<script type="text/javascript" src="Skin/html5gallery.js"></script>
+<script type="text/javascript" src="Skin/gauge.min.js"></script>
+<script type="text/javascript" src="Skin/chart.min.js"></script>
+<script type="text/javascript" src="Skin/quiz.min.js"></script>
+<script type="text/javascript" src="Skin/nhpup.js"></script>
+<script type="text/javascript" src="Skin/know.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<nav id="siteNav">
+<iframe id="inlineFrame" title="Inline Frame" width="253" height="133" src="menu.html"></iframe></br>
+<ul>
+<li><a href="index.html" class="daddy main-node">Manipulation de protocoles</a></li>
+<li><a href="Page_1.html" class="no-ch">VMware</a></li>
+<li><a href="Page_2.html" class="no-ch">Configuration réseau</a></li>
+<li><a href="Page_3.html" class="no-ch">Principes de génération de trames</a></li>
+<li><a href="Page_4.html" class="no-ch">Syntaxe de génération de trames</a></li>
+<li><a href="Page_5.html" class="no-ch">Analyse de trames</a></li>
+<li><a href="Page_6.html" class="no-ch"><b>Lab</b> diffusion Ethernet</a></li>
+<li id="active"><a class="active no-ch"><b>Lab</b> adresses Ethernet unicast et broadcast</a></li>
+<li><a href="Page_8.html" class="no-ch"><b>Lab</b> encapsulation d'un datagramme IP unicast et broadcast</a></li>
+<li><a href="Page_9.html" class="no-ch"><b>Lab</b> correspondance adresses Ethernet et IP, ARP</a></li>
+<li><a href="Page_10.html" class="no-ch"><b>Lab</b> cache ARP</a></li>
+<li><a href="Page_11.html" class="no-ch"><b>Lab</b> acceptation d'une trame Ethernet</a></li>
+<li><a href="Page_12.html" class="no-ch"><b>Lab</b> routage local</a></li>
+<li><a href="Page_13.html" class="no-ch"><b>Lab</b> IP forwarding</a></li>
+</ul>
+</nav>
+<div id="main-wrapper">
+<section id="main">
+<nav id="sitenav_top"></nav>
+<nav class="pagination noprt">
+<a href="Page_6.html" class="prev"><span><span>&laquo; </span>Précédent</span></a><span class="sep"> | </span><a href="Page_8.html" class="next"><span>Suivant<span> &raquo;</span></span></a>
+</nav>
+<div id="nodeDecoration"><p id="nodeTitle"><b>Lab</b> adresses Ethernet unicast et broadcast - Manipulation de protocoles</p></div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_presentation.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Prérequis&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_1">
+<div id="score_7_1" class="scores" data-blockname="Prérequis">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(7, 1, 0);"></image>
+<span id="score_7_1_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(7, 1, 1);"></image>
+<span id="score_7_1_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(7, 1, 2);"></image>
+<span id="score_7_1_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 1, 3);"></image>
+<span id="score_7_1_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 1, 3);"></image>
+<span id="score_7_1_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 1, 3);"></image>
+<span id="score_7_1_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_7_1_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_7_1_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(7, 1, 6);"></image>
+<span id="score_7_1_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_7_1_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_1_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_1_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_1" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+Cours Ethernet
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_presentation.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Préambule&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_2">
+<div id="score_7_2" class="scores" data-blockname="Préambule">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(7, 2, 0);"></image>
+<span id="score_7_2_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(7, 2, 1);"></image>
+<span id="score_7_2_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(7, 2, 2);"></image>
+<span id="score_7_2_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 2, 3);"></image>
+<span id="score_7_2_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 2, 3);"></image>
+<span id="score_7_2_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 2, 3);"></image>
+<span id="score_7_2_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_7_2_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_7_2_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(7, 2, 6);"></image>
+<span id="score_7_2_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_7_2_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_2_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_2_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_2" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+Le protocole Ethernet permet de différencier <b>trois types de destinataire</b> : </br>- Une unique machine</br>- Un groupe de machines</br>- L'ensemble des machines d'un réseau local.
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_course.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Objectif&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_3">
+<div id="score_7_3" class="scores" data-blockname="Objectif">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(7, 3, 0);"></image>
+<span id="score_7_3_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(7, 3, 1);"></image>
+<span id="score_7_3_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(7, 3, 2);"></image>
+<span id="score_7_3_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 3, 3);"></image>
+<span id="score_7_3_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 3, 3);"></image>
+<span id="score_7_3_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 3, 3);"></image>
+<span id="score_7_3_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_7_3_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_7_3_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(7, 3, 6);"></image>
+<span id="score_7_3_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_7_3_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_3_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_3_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_3" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+Ce lab illustrera <b>le comportement d'une interface réseau dans le traitement d'une adresse Ethernet unicast ou broadcast</b>.</br></br>Afin de ne prendre en compte que l'adressage du protocole Ethernet, les trames injectées seront de type Ethernet 802.3.
+</div>
+</br>
+</div>
+</nav>
+<nav id="sitenav_4">
+<div id="score_7_4" class="scores" data-blockname="Objectif">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(7, 4, 0);"></image>
+<span id="score_7_4_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(7, 4, 1);"></image>
+<span id="score_7_4_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(7, 4, 2);"></image>
+<span id="score_7_4_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 4, 3);"></image>
+<span id="score_7_4_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 4, 3);"></image>
+<span id="score_7_4_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 4, 3);"></image>
+<span id="score_7_4_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_7_4_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_7_4_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(7, 4, 6);"></image>
+<span id="score_7_4_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_7_4_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_4_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_4_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_4" class="block" style="display:block">
+<div id="actDiv4_0" style="display:block">
+<a onmousedown="Javascript:showDiv(4);">
+<image src="Skin/icon_activity_knowledge_big_red.png"></image>&nbsp;&nbsp;Trames Ethernet 802.3.</a>
+</div>
+<div id="actDiv4_1" style="display:none">
+<a onmousedown="Javascript:hideDiv(4);">
+<image src="Skin/icon_activity_knowledge_small_red.png"></image>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trames Ethernet 802.3.</a>
+<div class="embed-responsive embed-responsive-1by1">
+<iframe id="inlineFrame" title="Inline Frame" width="607" height="125" src="Ethernet 802.3.png"> </iframe>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_presentation.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Configuration&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_5">
+<div id="score_7_5" class="scores" data-blockname="Configuration">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(7, 5, 0);"></image>
+<span id="score_7_5_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(7, 5, 1);"></image>
+<span id="score_7_5_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(7, 5, 2);"></image>
+<span id="score_7_5_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 5, 3);"></image>
+<span id="score_7_5_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 5, 3);"></image>
+<span id="score_7_5_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 5, 3);"></image>
+<span id="score_7_5_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_7_5_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_7_5_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(7, 5, 6);"></image>
+<span id="score_7_5_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_7_5_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_5_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_5_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_5" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+Connectez trois machines virtuelles Tiny Core Linux sur un même switch virtuel isolé (VMware vmnet2).</br></br></br>Dans un premier temps, identifiez l'adresse Ethernet de l'interface réseau "eth0" de chaque machine VM1, VM2 et VM3 (ifconfig <i>nom_interface</i>).</br></br></br>Puis, démarrez les scripts sur les différentes machines virtuelles :</br>- VM1 : sous l'environnement scapy pour injecter des trames (script scapy)</br>- VM2 et VM3 : en écoute des trames présentées (script dump)
+</div>
+</br>
+</div>
+</nav>
+<nav id="sitenav_6">
+<div id="score_7_6" class="scores" data-blockname="Configuration">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(7, 6, 0);"></image>
+<span id="score_7_6_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(7, 6, 1);"></image>
+<span id="score_7_6_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(7, 6, 2);"></image>
+<span id="score_7_6_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 6, 3);"></image>
+<span id="score_7_6_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 6, 3);"></image>
+<span id="score_7_6_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 6, 3);"></image>
+<span id="score_7_6_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_7_6_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_7_6_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(7, 6, 6);"></image>
+<span id="score_7_6_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_7_6_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_6_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_6_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_6" class="block" style="display:block">
+<div id="actDiv6_0" style="display:block">
+<a onmousedown="Javascript:showDiv(6);">
+<image src="Skin/icon_activity_knowledge_big_red.png"></image>&nbsp;&nbsp;Annexe Ethernet</a>
+</div>
+<div id="actDiv6_1" style="display:none">
+<a onmousedown="Javascript:hideDiv(6);">
+<image src="Skin/icon_activity_knowledge_small_red.png"></image>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Annexe Ethernet</a>
+<div class="embed-responsive embed-responsive-1by1">
+<iframe id="inlineFrame" title="Inline Frame" width="692" height="458" src="Ethernet_3_VM.png"> </iframe>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_td.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Travail préparatoire&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_7">
+<div id="score_7_7" class="scores" data-blockname="Travail préparatoire">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(7, 7, 0);"></image>
+<span id="score_7_7_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(7, 7, 1);"></image>
+<span id="score_7_7_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(7, 7, 2);"></image>
+<span id="score_7_7_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 7, 3);"></image>
+<span id="score_7_7_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 7, 3);"></image>
+<span id="score_7_7_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 7, 3);"></image>
+<span id="score_7_7_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_7_7_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_7_7_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(7, 7, 6);"></image>
+<span id="score_7_7_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_7_7_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_7_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_7_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_7" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+Vous trouverez ci-dessous les indications pour compléter les documents demandés dans le travail préparatoire des labs suivants :</br>- L'identification des machines (nom) et leur interface (adresse Ethernet)</br>- La contribution de chaque couche dans l'élaboration de la trame (flèches des couches vers les champs)</br>- La trame émise (valeur des champs)</br>- Le parcours et le sens de propagation de la trame (flèches)</br>- Le comportement de chaque couche dans le processus de réception et de traitement de la trame (flèches des champs vers les couches, éventuellement vers la corbeille)
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_search.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Lab 1&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_8">
+<div id="score_7_8" class="scores" data-blockname="Lab 1">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(7, 8, 0);"></image>
+<span id="score_7_8_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(7, 8, 1);"></image>
+<span id="score_7_8_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(7, 8, 2);"></image>
+<span id="score_7_8_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 8, 3);"></image>
+<span id="score_7_8_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 8, 3);"></image>
+<span id="score_7_8_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 8, 3);"></image>
+<span id="score_7_8_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_7_8_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_7_8_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(7, 8, 6);"></image>
+<span id="score_7_8_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_7_8_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_8_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_8_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_8" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+<image src="Skin/Support_cours_11.png"></image> Préparation</br>En suivant les indications données dans le paragraphe "travail préparatoire", illustrez sur le
+<b><span STYLE="font-size:4.5mm"><a href="Ethernet_3_VM.pdf" target="_blank" style="color:#DD0000" >document joint </a></span></b>
+<b>le comportement d'une interface réseau dans le traitement d'une adresse Ethernet unicast</b> comme indiqué dans la partie "réalisation" du présent lab.</br></br></br><image src="Skin/Support_cours_12.png"></image> Réalisation</br>Générez avec scapy une trame Ethernet 802.3 avec pour adresse de destination, <b>l'adresse Ethernet unicast correspondant à celle de la VM2</b>.</br></br>Concernant l'adresse de source, vous la choisirez de façon judicieuse.</br></br>Vous initialiserez le champ "longueur" à 0 afin de forcer scapy à utiliser le mode
+<b><span STYLE="font-size:4.5mm;color:#DD0000"><a onmouseover="nhpup.popup('Succession d&rsquo;octets sans délimitation de champs');">raw,</a></span></b>
+vous permettant ainsi d'ajouter seulement un payload.</br></br>Vous ajouterez un payload composé du message "hello" sans faire appel à d'autres protocoles.
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_search.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Lab 2&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_9">
+<div id="score_7_9" class="scores" data-blockname="Lab 2">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(7, 9, 0);"></image>
+<span id="score_7_9_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(7, 9, 1);"></image>
+<span id="score_7_9_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(7, 9, 2);"></image>
+<span id="score_7_9_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 9, 3);"></image>
+<span id="score_7_9_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 9, 3);"></image>
+<span id="score_7_9_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 9, 3);"></image>
+<span id="score_7_9_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_7_9_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_7_9_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(7, 9, 6);"></image>
+<span id="score_7_9_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_7_9_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_9_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_9_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_9" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+<image src="Skin/Support_cours_11.png"></image> Préparation</br>En suivant les indications données dans le paragraphe "travail préparatoire", illustrez sur le
+<b><span STYLE="font-size:4.5mm"><a href="Ethernet_3_VM.pdf" target="_blank" style="color:#DD0000" >document joint </a></span></b>
+<b>le comportement d'une interface réseau dans le traitement d'une adresse Ethernet broadcast</b> comme indiqué dans la partie "réalisation" du présent lab. Vous pourrez reprendre le document précédent et le modifier.</br></br></br><image src="Skin/Support_cours_12.png"></image> Réalisation</br>Dans les mêmes conditions, générez avec scapy une trame Ethernet 802.3 avec pour adresse de destination, <b>l'adresse Ethernet broadcast</b>.
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_qcm.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Flow chart réception d'une trame&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_10">
+<div id="score_7_10" class="scores" data-blockname="Flow chart réception d'une trame">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(7, 10, 0);"></image>
+<span id="score_7_10_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(7, 10, 1);"></image>
+<span id="score_7_10_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(7, 10, 2);"></image>
+<span id="score_7_10_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 10, 3);"></image>
+<span id="score_7_10_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 10, 3);"></image>
+<span id="score_7_10_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(7, 10, 3);"></image>
+<span id="score_7_10_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_7_10_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_7_10_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(7, 10, 6);"></image>
+<span id="score_7_10_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_7_10_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_10_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_7_10_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_10" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+<image src="Skin/Support_cours_11.png"></image> Interprétation</br>Dans le cas général d'une machine recevant une trame Ethernet dont les données sont destinées à l'application qui s'y exécute, complétez le document suivant en indiquant :</br>- Les paramètres des appels systèmes entre les différentes couches</br>- Les informations extraites des tables systèmes, dans le cas présent l'interface réseau (flèches requêtes et réponses, informations échangées)</br>- L'interface utilisée pour recevoir la trame (nom)</br></br>Précisez le rôle de chaque couche.</br></br>Document "réception d'une trame" à
+<b><span STYLE="font-size:4.5mm"><a href="Ethernet_proc_reception.pdf" target="_blank" style="color:#DD0000" >compléter.</a></span></b>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_not_defined.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Synthèse&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+</div>
+</div>
+</div>
+<nav id="sitenav_bottom"></nav>
+<nav class="pagination noprt">
+<a href="Page_6.html" class="prev"><span><span>&laquo; </span>Précédent</span></a><span class="sep"> | </span><a href="Page_8.html" class="next"><span>Suivant<span> &raquo;</span></span></a>
+</nav>
+</br>
+</section>
+</div>
+</div>
+<script type="text/javascript" src="Skin/_intef_js.js"></script>
+<script type="text/javascript" src="Skin/scores.min.js"></script>
+</body></html>

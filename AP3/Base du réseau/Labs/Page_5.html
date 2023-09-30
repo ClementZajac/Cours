@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" type="text/css" href="Skin/base.css" />
+<link rel="stylesheet" type="text/css" href="Skin/content.css" />
+<link rel="stylesheet" type="text/css" href="Skin/nav.css" />
+<link rel="stylesheet" type="text/css" href="Skin/style.css" />
+<link rel="stylesheet" type="text/css" href="Skin/bootstrap.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Analyse de trames - Manipulation de protocoles</title>
+<link rel="shortcut icon" href="Skin/favicon.ico" type="image/x-icon" />
+<!--[if lt IE 9]><script type="text/javascript" src="Skin/exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="Skin/jquery.js"></script>
+<script type="text/javascript" src="Skin/exe_jquery.js"></script>
+<script type="text/javascript" src="Skin/common_i18n.js"></script>
+<script type="text/javascript" src="Skin/common.js"></script>
+<script type="text/javascript" src="Skin/exe_html5.js"></script>
+<script type="text/javascript" src="Skin/html5gallery.js"></script>
+<script type="text/javascript" src="Skin/gauge.min.js"></script>
+<script type="text/javascript" src="Skin/chart.min.js"></script>
+<script type="text/javascript" src="Skin/quiz.min.js"></script>
+<script type="text/javascript" src="Skin/nhpup.js"></script>
+<script type="text/javascript" src="Skin/know.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-0"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<nav id="siteNav">
+<iframe id="inlineFrame" title="Inline Frame" width="253" height="133" src="menu.html"></iframe></br>
+<ul>
+<li><a href="index.html" class="daddy main-node">Manipulation de protocoles</a></li>
+<li><a href="Page_1.html" class="no-ch">VMware</a></li>
+<li><a href="Page_2.html" class="no-ch">Configuration réseau</a></li>
+<li><a href="Page_3.html" class="no-ch">Principes de génération de trames</a></li>
+<li><a href="Page_4.html" class="no-ch">Syntaxe de génération de trames</a></li>
+<li id="active"><a class="active no-ch">Analyse de trames</a></li>
+<li><a href="Page_6.html" class="no-ch"><b>Lab</b> diffusion Ethernet</a></li>
+<li><a href="Page_7.html" class="no-ch"><b>Lab</b> adresses Ethernet unicast et broadcast</a></li>
+<li><a href="Page_8.html" class="no-ch"><b>Lab</b> encapsulation d'un datagramme IP unicast et broadcast</a></li>
+<li><a href="Page_9.html" class="no-ch"><b>Lab</b> correspondance adresses Ethernet et IP, ARP</a></li>
+<li><a href="Page_10.html" class="no-ch"><b>Lab</b> cache ARP</a></li>
+<li><a href="Page_11.html" class="no-ch"><b>Lab</b> acceptation d'une trame Ethernet</a></li>
+<li><a href="Page_12.html" class="no-ch"><b>Lab</b> routage local</a></li>
+<li><a href="Page_13.html" class="no-ch"><b>Lab</b> IP forwarding</a></li>
+</ul>
+</nav>
+<div id="main-wrapper">
+<section id="main">
+<nav id="sitenav_top"></nav>
+<nav class="pagination noprt">
+<a href="Page_4.html" class="prev"><span><span>&laquo; </span>Précédent</span></a><span class="sep"> | </span><a href="Page_6.html" class="next"><span>Suivant<span> &raquo;</span></span></a>
+</nav>
+<div id="nodeDecoration"><p id="nodeTitle">Analyse de trames - Manipulation de protocoles</p></div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_presentation.png" />
+<span class="iDeviceTitle" style="color:#fd7e35" >Script dump&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_1">
+<div id="score_5_1" class="scores" data-blockname="Script dump">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(5, 1, 0);"></image>
+<span id="score_5_1_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(5, 1, 1);"></image>
+<span id="score_5_1_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(5, 1, 2);"></image>
+<span id="score_5_1_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(5, 1, 3);"></image>
+<span id="score_5_1_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(5, 1, 3);"></image>
+<span id="score_5_1_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(5, 1, 3);"></image>
+<span id="score_5_1_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_5_1_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_5_1_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(5, 1, 6);"></image>
+<span id="score_5_1_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_5_1_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_5_1_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_5_1_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_1" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+En complément de ce qu'apporte scapy pour la génération de trames, un <b>script python "dump.py"</b> permet d'identifier et d'analyser les trames reçues par l'interface réseau "eth0" de la machine qui l'exécute. Voici quelques éléments pour en comprendre le fonctionnement :</br></br>- L'adresse Ethernet de destination de la trame est toujours
+<b><span STYLE="font-size:4.5mm;color:#DD0000"><a onmouseover="nhpup.popup('Trame reçue &lt;br&gt;&lt;/a&gt;&lt;br/&gt; &lt;img src=&quot;adresse.png&quot;&gt;', {'width': 624});">présentée.</a></span></b>
+</br></br>- Si l'adresse de destination de la trame <b>ne correspond pas</b> à l'adresse Ethernet de l'interface, la trame est
+<b><span STYLE="font-size:4.5mm;color:#DD0000"><a onmouseover="nhpup.popup('Non destinataire &lt;br&gt;&lt;/a&gt;&lt;br/&gt; &lt;img src=&quot;short.png&quot;&gt;', {'width': 624});">résumée </a></span></b>
+en une ligne pour indiquer qu'elle a été reçue mais non acceptée.</br></br>- Si l'adresse de destination de la trame <b>correspond</b> à l'adresse Ethernet de l'interface, la trame est
+<b><span STYLE="font-size:4.5mm;color:#DD0000"><a onmouseover="nhpup.popup('Destinataire &lt;br&gt;&lt;/a&gt;&lt;br/&gt; &lt;img src=&quot;detailled.png&quot;&gt;', {'width': 762});">détaillée </a></span></b>
+pour indiquer qu'elle a été reçue et acceptée pour être désencapsulée.</br></br>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_presentation.png" />
+<span class="iDeviceTitle" style="color:#fd7e35" >Touches de fonction&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_2">
+<div id="score_5_2" class="scores" data-blockname="Touches de fonction">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(5, 2, 0);"></image>
+<span id="score_5_2_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(5, 2, 1);"></image>
+<span id="score_5_2_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(5, 2, 2);"></image>
+<span id="score_5_2_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(5, 2, 3);"></image>
+<span id="score_5_2_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(5, 2, 3);"></image>
+<span id="score_5_2_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(5, 2, 3);"></image>
+<span id="score_5_2_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_5_2_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_5_2_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(5, 2, 6);"></image>
+<span id="score_5_2_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_5_2_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_5_2_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_5_2_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_2" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+Pour lancer un script : ./nom_du_script</br></br>Pour stopper un script : ctrl maj C</br></br>Pour quitter scapy : ctrl maj D</br>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="MediaIdevice">
+<div class="iDevice emphasis1">
+<img alt="" class="iDevice_icon" src="Skin/icon_block_not_defined.png" />
+<span class="iDeviceTitle" style="color:#DD0000" >Capture&nbsp&nbsp</span><br/>
+<div class="iDevice_inner">
+<nav id="sitenav_3">
+<div id="score_5_3" class="scores" data-blockname="Capture">
+<span style="font-weight: bold;font-size: 0.8rem;"><a href="index.html#sitenav_0" style="color:black">Compréhension</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;" src="Skin/button_edit.png" onmousedown="Javascript:openText(5, 3, 0);"></image>
+<span id="score_5_3_0" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_remove.png" onmousedown="Javascript:updateScores(5, 3, 1);"></image>
+<span id="score_5_3_1" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;" src="Skin/button_help.png" onmousedown="Javascript:openText(5, 3, 2);"></image>
+<span id="score_5_3_2" style="font-size: 0.85rem;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(5, 3, 3);"></image>
+<span id="score_5_3_3" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(5, 3, 3);"></image>
+<span id="score_5_3_4" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_ok.png" onmousedown="Javascript:updateScores(5, 3, 3);"></image>
+<span id="score_5_3_5" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<span style="font-weight: bold;font-size: 0.8rem;display:none;">&nbsp;&nbsp;<a href="index.html#sitenav_0" style="color:black">QCM</a>&nbsp;:&nbsp;&nbsp;</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_pass.png"></image>
+<span id="score_5_3_6" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_fail.png"></image>
+<span id="score_5_3_7" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+<image style="vertical-align: middle;display:none;" src="Skin/button_read.png" onmousedown="Javascript:updateScores(5, 3, 6);"></image>
+<span id="score_5_3_8" style="font-size: 0.85rem;display:none;">
+<a>0&nbsp;&nbsp;</a>
+</span>
+&nbsp;&nbsp;<span id="score_5_3_time" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_5_3_read" style="font-size: 0.7rem;">
+<a></a>
+</span>
+&nbsp;&nbsp;<span id="score_5_3_text" style="font-size: 0.7rem;" class="row container-fluid">
+<a></a>
+</span>
+</div>
+<div id="activity_3" class="block" style="display:block">
+<div style="column-width: 800.0px;column-gap: 2em;">
+En option, pour <b>capturer une ou plusieurs trames reçues</b> sur une interface réseau, il vous faut préalablement disposer de son nom.</br></br>L'interface doit être préalablement activée avant de pouvoir être utilisée.</br></br>La capture se fait avec la commande sniff() : variable_python = sniff(iface="nom_interface", count=nombre_de_trames_a_capturer)
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<nav id="sitenav_bottom"></nav>
+<nav class="pagination noprt">
+<a href="Page_4.html" class="prev"><span><span>&laquo; </span>Précédent</span></a><span class="sep"> | </span><a href="Page_6.html" class="next"><span>Suivant<span> &raquo;</span></span></a>
+</nav>
+</br>
+</section>
+</div>
+</div>
+<script type="text/javascript" src="Skin/_intef_js.js"></script>
+<script type="text/javascript" src="Skin/scores.min.js"></script>
+</body></html>

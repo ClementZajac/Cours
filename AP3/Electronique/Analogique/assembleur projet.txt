@@ -1,0 +1,15 @@
+registres de :
+	internal clock - configurer l'horloge interne
+	adc	- convertisseru analogique numerique 
+
+sous pgrm qui envoie un signal timé pour mettreun bit a 0 ou a 1
+
+sous prgm pour 8 bits  -> 1 couleur
+
+puis appeller les 4 couleurs
+
+pour appeller x fois le nbr de led
+
+https://ve2cuy.wordpress.com/comment-programmer-lhorloge-dun-pic-18f/
+
+http://genelaix.free.fr/spip.php?article9

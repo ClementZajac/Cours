@@ -1,0 +1,35 @@
+@startuml
+abstract        abstract
+abstract class  "abstract class"
+annotation      annotation
+circle          circle
+()              circle_short_form
+class           class
+diamond         diamond
+<>              diamond_short_form
+entity          entity
+enum            enum
+interface       interface
+
+
+class Facteur{}
+class Zone{}
+abstract Recommande{}
+class Lettre{}
+class Colis{}
+class Destinataire{}
+abstract Personne{}
+
+Zone "1..*" -- "1..1" Recommande
+Recommande "1..*" -- "1..1" Destinataire
+Recommande "1..*" -- "1..1" Facteur
+Zone "1..*" -- "1..*" Personne
+Recommande <|-- Lettre
+Recommande <|-- Colis
+
+
+
+
+
+
+@enduml

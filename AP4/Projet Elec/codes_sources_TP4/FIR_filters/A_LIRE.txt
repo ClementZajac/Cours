@@ -1,0 +1,18 @@
+La description VHDL du filtre est assez rébarbative à écrire (voir FIR_filter_37_coef.vhd):
+Elle contient au final beaucoup de lignes simples et pratiquement identiques, aux indices près. 
+
+
+Pour simplifier l'écriture, il semblait tentant d'utiliser le type ARRAY, qui permet de définir une structure 2D, et donc des groupes de bus.
+
+Par exemple, pour le registre à décalage d'entrée, on peut ainsi définir 37 mots de 16 bits,
+et dire que le mot i prend la valeur du mot i-1 à chaque front d'horloge.
+
+C'est ce qui a été entrepris dans le fichier FIR_filter_37_coef_optimized.vhd.
+
+Mais au final, on est coincé car avec le type ARRAY, il semble qu'on ne peut travailler qu'avec des éléments simples, comme array_name(1,2), et pas avec
+des mots complets, comme array_name(1,15 downto 0).
+Et donc on ne peut pas définir simplement des additions ou des multiplications de mots.
+
+( On ne peut pas faire array_name(1,15 downto 0) + array_name(35,15 downto 0). )
+
+Au final, ça ne rend pas les choses plus aisées pour ce que l'on veut faire.

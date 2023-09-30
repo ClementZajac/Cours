@@ -1,0 +1,55 @@
+MPASM 5.77                          MAIN.ASM   12-9-2021  9:12:40         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; TODO INSERT CONFIG CODE HERE USING CONFIG BITS GENERATOR
+                      00002     
+Warning[207]: Found label after column 1. (GPR_VAR)
+                      00003     GPR_VAR        UDATA
+Warning[207]: Found label after column 1. (COMPTEUR)
+000000                00004     COMPTEUR         RES        1      ; User variable linker places
+Warning[207]: Found label after column 1. (LONGUEUR)
+000001                00005     LONGUEUR         RES        1      ; User variable linker places
+                      00006     
+                      00007 RES_VECT  CODE    0x0000            ; processor reset vector
+000000 EF?? F???      00008     GOTO    DEBUT                   ; go to beginning of program
+                      00009 
+                      00010 ; TODO ADD INTERRUPTS HERE IF USED
+                      00011 
+                      00012 MAIN_PROG CODE                      ; let linker place main program
+                      00013 
+000000                00014 DEBUT
+000000 0E09           00015     MovLW d'9'
+000002 6E??           00016     MovWF LONGUEUR
+000004                00017 L1
+000004 0E00           00018     MovLW d'0'
+000006 6E??           00019     MovWF COMPTEUR
+000008                00020 L2
+000008 2A??           00021     INCF COMPTEUR
+00000A 5000           00022     MovF LONGUEUR, 0
+00000C 60??           00023     CPFSLT COMPTEUR
+00000E EF?? F???      00024     GOTO L1                          ; loop forever
+000012 EF?? F???      00025     GOTO L2
+                      00026     END
+MPASM 5.77                          MAIN.ASM   12-9-2021  9:12:40         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+COMPTEUR                          00000000
+DEBUT                             00000000
+L1                                00000004
+L2                                00000008
+LONGUEUR                          00000001
+__18F45K20                        00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

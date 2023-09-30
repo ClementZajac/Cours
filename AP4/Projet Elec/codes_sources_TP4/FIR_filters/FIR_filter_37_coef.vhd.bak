@@ -1,0 +1,242 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee. Std_logic_arith.all;
+USE ieee.std_logic_signed.all;
+
+entity FIR_filter_37_coef is
+-- 37-tap filter with symetrical coefficients => 19 different coefficients
+	port
+	(
+		clock_in		: in  std_logic;
+		filter_in	: in  std_logic_vector(15 downto 0);
+		coef_1		: in	std_logic_vector(15 downto 0);
+		coef_2		: in	std_logic_vector(15 downto 0);
+		coef_3		: in	std_logic_vector(15 downto 0);
+		coef_4		: in	std_logic_vector(15 downto 0);
+		coef_5		: in	std_logic_vector(15 downto 0);
+		coef_6		: in	std_logic_vector(15 downto 0);
+		coef_7		: in	std_logic_vector(15 downto 0);
+		coef_8		: in	std_logic_vector(15 downto 0);
+		coef_9		: in	std_logic_vector(15 downto 0);
+		coef_10		: in	std_logic_vector(15 downto 0);
+		coef_11		: in	std_logic_vector(15 downto 0);
+		coef_12		: in	std_logic_vector(15 downto 0);
+		coef_13		: in	std_logic_vector(15 downto 0);
+		coef_14		: in	std_logic_vector(15 downto 0);
+		coef_15		: in	std_logic_vector(15 downto 0);
+		coef_16		: in	std_logic_vector(15 downto 0);
+		coef_17		: in	std_logic_vector(15 downto 0);
+		coef_18		: in	std_logic_vector(15 downto 0);
+		coef_19		: in	std_logic_vector(15 downto 0);
+		filter_out	: out	 std_logic_vector(37 downto 0)
+	);
+end FIR_filter_37_coef;
+
+architecture FIR_37_tap of FIR_filter_37_coef is
+
+	signal sample_1 : std_logic_vector(15 downto 0);		-- 16-bit input samples
+	signal sample_2 : std_logic_vector(15 downto 0);
+	signal sample_3 : std_logic_vector(15 downto 0);
+	signal sample_4 : std_logic_vector(15 downto 0);
+	signal sample_5 : std_logic_vector(15 downto 0);
+	signal sample_6 : std_logic_vector(15 downto 0);
+	signal sample_7 : std_logic_vector(15 downto 0);
+	signal sample_8 : std_logic_vector(15 downto 0);
+	signal sample_9 : std_logic_vector(15 downto 0);
+	signal sample_10 : std_logic_vector(15 downto 0);
+	signal sample_11 : std_logic_vector(15 downto 0);
+	signal sample_12 : std_logic_vector(15 downto 0);
+	signal sample_13 : std_logic_vector(15 downto 0);
+	signal sample_14 : std_logic_vector(15 downto 0);
+	signal sample_15 : std_logic_vector(15 downto 0);
+	signal sample_16 : std_logic_vector(15 downto 0);
+	signal sample_17 : std_logic_vector(15 downto 0);
+	signal sample_18 : std_logic_vector(15 downto 0);
+	signal sample_19 : std_logic_vector(15 downto 0);
+	signal sample_20 : std_logic_vector(15 downto 0);
+	signal sample_21 : std_logic_vector(15 downto 0);
+	signal sample_22 : std_logic_vector(15 downto 0);
+	signal sample_23 : std_logic_vector(15 downto 0);
+	signal sample_24 : std_logic_vector(15 downto 0);
+	signal sample_25 : std_logic_vector(15 downto 0);
+	signal sample_26 : std_logic_vector(15 downto 0);
+	signal sample_27 : std_logic_vector(15 downto 0);
+	signal sample_28 : std_logic_vector(15 downto 0);
+	signal sample_29 : std_logic_vector(15 downto 0);
+	signal sample_30 : std_logic_vector(15 downto 0);
+	signal sample_31 : std_logic_vector(15 downto 0);
+	signal sample_32 : std_logic_vector(15 downto 0);
+	signal sample_33 : std_logic_vector(15 downto 0);
+	signal sample_34 : std_logic_vector(15 downto 0);
+	signal sample_35 : std_logic_vector(15 downto 0);
+	signal sample_36 : std_logic_vector(15 downto 0);
+	signal sample_37 : std_logic_vector(15 downto 0);
+
+	signal sum_1 : std_logic_vector(16 downto 0);			-- 17-bit partial sums
+	signal sum_2 : std_logic_vector(16 downto 0);
+	signal sum_3 : std_logic_vector(16 downto 0);
+	signal sum_4 : std_logic_vector(16 downto 0);
+	signal sum_5 : std_logic_vector(16 downto 0);
+	signal sum_6 : std_logic_vector(16 downto 0);
+	signal sum_7 : std_logic_vector(16 downto 0);
+	signal sum_8 : std_logic_vector(16 downto 0);
+	signal sum_9 : std_logic_vector(16 downto 0);
+	signal sum_10 : std_logic_vector(16 downto 0);
+	signal sum_11 : std_logic_vector(16 downto 0);
+	signal sum_12 : std_logic_vector(16 downto 0);
+	signal sum_13 : std_logic_vector(16 downto 0);
+	signal sum_14 : std_logic_vector(16 downto 0);
+	signal sum_15 : std_logic_vector(16 downto 0);
+	signal sum_16 : std_logic_vector(16 downto 0);
+	signal sum_17 : std_logic_vector(16 downto 0);
+	signal sum_18 : std_logic_vector(16 downto 0);
+	signal sum_19 : std_logic_vector(16 downto 0);
+
+	signal product_1 : std_logic_vector(32 downto 0);		-- 33-bit partial products (17-bit partial sum x 16-bit coefficient)
+	signal product_2 : std_logic_vector(32 downto 0);
+	signal product_3 : std_logic_vector(32 downto 0);
+	signal product_4 : std_logic_vector(32 downto 0);
+	signal product_5 : std_logic_vector(32 downto 0);
+	signal product_6 : std_logic_vector(32 downto 0);
+	signal product_7 : std_logic_vector(32 downto 0);
+	signal product_8 : std_logic_vector(32 downto 0);
+	signal product_9 : std_logic_vector(32 downto 0);
+	signal product_10 : std_logic_vector(32 downto 0);
+	signal product_11 : std_logic_vector(32 downto 0);
+	signal product_12 : std_logic_vector(32 downto 0);
+	signal product_13 : std_logic_vector(32 downto 0);
+	signal product_14 : std_logic_vector(32 downto 0);
+	signal product_15 : std_logic_vector(32 downto 0);
+	signal product_16 : std_logic_vector(32 downto 0);
+	signal product_17 : std_logic_vector(32 downto 0);
+	signal product_18 : std_logic_vector(32 downto 0);
+	signal product_19 : std_logic_vector(32 downto 0);
+
+	signal ext_product_1 : std_logic_vector(37 downto 0);		-- 33-bit partial ext_products (17-bit partial sum x 16-bit coefficient), extended to 38-bit
+	signal ext_product_2 : std_logic_vector(37 downto 0);
+	signal ext_product_3 : std_logic_vector(37 downto 0);
+	signal ext_product_4 : std_logic_vector(37 downto 0);
+	signal ext_product_5 : std_logic_vector(37 downto 0);
+	signal ext_product_6 : std_logic_vector(37 downto 0);
+	signal ext_product_7 : std_logic_vector(37 downto 0);
+	signal ext_product_8 : std_logic_vector(37 downto 0);
+	signal ext_product_9 : std_logic_vector(37 downto 0);
+	signal ext_product_10 : std_logic_vector(37 downto 0);
+	signal ext_product_11 : std_logic_vector(37 downto 0);
+	signal ext_product_12 : std_logic_vector(37 downto 0);
+	signal ext_product_13 : std_logic_vector(37 downto 0);
+	signal ext_product_14 : std_logic_vector(37 downto 0);
+	signal ext_product_15 : std_logic_vector(37 downto 0);
+	signal ext_product_16 : std_logic_vector(37 downto 0);
+	signal ext_product_17 : std_logic_vector(37 downto 0);
+	signal ext_product_18 : std_logic_vector(37 downto 0);
+	signal ext_product_19 : std_logic_vector(37 downto 0);
+
+begin
+
+	process(clock_in) is 
+	begin											-- shift register to store
+		if(rising_edge(clock_in)) then	-- the successive input samples
+			sample_1 <= filter_in;
+			sample_2 <= sample_1;
+			sample_3 <= sample_2;
+			sample_4 <= sample_3;
+			sample_5 <= sample_4;
+			sample_6 <= sample_5;
+			sample_7 <= sample_6;
+			sample_8 <= sample_7;
+			sample_9 <= sample_8;
+			sample_10 <= sample_9;
+			sample_11 <= sample_10;
+			sample_12 <= sample_11;
+			sample_13 <= sample_12;
+			sample_14 <= sample_13;
+			sample_15 <= sample_14;
+			sample_16 <= sample_15;
+			sample_17 <= sample_16;
+			sample_18 <= sample_17;
+			sample_19 <= sample_18;
+			sample_20 <= sample_19;
+			sample_21 <= sample_20;
+			sample_22 <= sample_21;
+			sample_23 <= sample_22;
+			sample_24 <= sample_23;
+			sample_25 <= sample_24;
+			sample_26 <= sample_25;
+			sample_27 <= sample_26;
+			sample_28 <= sample_27;
+			sample_29 <= sample_28;
+			sample_30 <= sample_29;
+			sample_31 <= sample_30;
+			sample_32 <= sample_31;
+			sample_33 <= sample_32;
+			sample_34 <= sample_33;
+			sample_35 <= sample_34;
+			sample_36 <= sample_35;
+			sample_37 <= sample_36;			
+		end if;
+	end process;
+
+	sum_1(16 downto 0) <= (sample_1(15) & sample_1(15 downto 0)) + (sample_37(15) & sample_37(15 downto 0)); -- each adder input extended to 17-bit
+	sum_2(16 downto 0) <= (sample_2(15) & sample_2(15 downto 0)) + (sample_36(15) & sample_36(15 downto 0));	-- since input and output of adder need to have the same width
+	sum_3(16 downto 0) <= (sample_3(15) & sample_3(15 downto 0)) + (sample_35(15) & sample_35(15 downto 0));
+	sum_4(16 downto 0) <= (sample_4(15) & sample_4(15 downto 0)) + (sample_34(15) & sample_34(15 downto 0));
+	sum_5(16 downto 0) <= (sample_5(15) & sample_5(15 downto 0)) + (sample_33(15) & sample_33(15 downto 0));
+	sum_6(16 downto 0) <= (sample_6(15) & sample_6(15 downto 0)) + (sample_32(15) & sample_32(15 downto 0));
+	sum_7(16 downto 0) <= (sample_7(15) & sample_7(15 downto 0)) + (sample_31(15) & sample_31(15 downto 0));
+	sum_8(16 downto 0) <= (sample_8(15) & sample_8(15 downto 0)) + (sample_30(15) & sample_30(15 downto 0));
+	sum_9(16 downto 0) <= (sample_9(15) & sample_9(15 downto 0)) + (sample_29(15) & sample_29(15 downto 0));
+	sum_10(16 downto 0) <= (sample_10(15) & sample_10(15 downto 0)) + (sample_28(15) & sample_28(15 downto 0));
+	sum_11(16 downto 0) <= (sample_11(15) & sample_11(15 downto 0)) + (sample_27(15) & sample_27(15 downto 0));
+	sum_12(16 downto 0) <= (sample_12(15) & sample_12(15 downto 0)) + (sample_26(15) & sample_26(15 downto 0));
+	sum_13(16 downto 0) <= (sample_13(15) & sample_13(15 downto 0)) + (sample_25(15) & sample_25(15 downto 0));
+	sum_14(16 downto 0) <= (sample_14(15) & sample_14(15 downto 0)) + (sample_24(15) & sample_24(15 downto 0));
+	sum_15(16 downto 0) <= (sample_15(15) & sample_15(15 downto 0)) + (sample_23(15) & sample_23(15 downto 0));
+	sum_16(16 downto 0) <= (sample_16(15) & sample_16(15 downto 0)) + (sample_22(15) & sample_22(15 downto 0));
+	sum_17(16 downto 0) <= (sample_17(15) & sample_17(15 downto 0)) + (sample_21(15) & sample_21(15 downto 0));
+	sum_18(16 downto 0) <= (sample_18(15) & sample_18(15 downto 0)) + (sample_20(15) & sample_20(15 downto 0));
+	sum_19(16 downto 0) <= (sample_19(15) & sample_19(15 downto 0));
+	
+	product_1 <= sum_1 * coef_1;
+	product_2 <= sum_2 * coef_2;
+	product_3 <= sum_3 * coef_3;
+	product_4 <= sum_4 * coef_4;
+	product_5 <= sum_5 * coef_5;
+	product_6 <= sum_6 * coef_6;
+	product_7 <= sum_7 * coef_7;
+	product_8 <= sum_8 * coef_8;
+	product_9 <= sum_9 * coef_9;
+	product_10 <= sum_10 * coef_10;
+	product_11 <= sum_11 * coef_11;
+	product_12 <= sum_12 * coef_12;
+	product_13 <= sum_13 * coef_13;
+	product_14 <= sum_14 * coef_14;
+	product_15 <= sum_15 * coef_15;
+	product_16 <= sum_16 * coef_16;
+	product_17 <= sum_17 * coef_17;
+	product_18 <= sum_18 * coef_18;
+	product_19 <= sum_19 * coef_19;
+	
+	ext_product_1(37 downto 0) <= product_1(32) & product_1(32) & product_1(32) & product_1(32) & product_1(32) & product_1(32 downto 0);
+	ext_product_2(37 downto 0) <= product_2(32) & product_2(32) & product_2(32) & product_2(32) & product_2(32) & product_2(32 downto 0);
+	ext_product_3(37 downto 0) <= product_3(32) & product_3(32) & product_3(32) & product_3(32) & product_3(32) & product_3(32 downto 0);
+	ext_product_4(37 downto 0) <= product_4(32) & product_4(32) & product_4(32) & product_4(32) & product_4(32) & product_4(32 downto 0);
+	ext_product_5(37 downto 0) <= product_5(32) & product_5(32) & product_5(32) & product_5(32) & product_5(32) & product_5(32 downto 0);
+	ext_product_6(37 downto 0) <= product_6(32) & product_6(32) & product_6(32) & product_6(32) & product_6(32) & product_6(32 downto 0);
+	ext_product_7(37 downto 0) <= product_7(32) & product_7(32) & product_7(32) & product_7(32) & product_7(32) & product_7(32 downto 0);
+	ext_product_8(37 downto 0) <= product_8(32) & product_8(32) & product_8(32) & product_8(32) & product_8(32) & product_8(32 downto 0);
+	ext_product_9(37 downto 0) <= product_9(32) & product_9(32) & product_9(32) & product_9(32) & product_9(32) & product_9(32 downto 0);
+	ext_product_10(37 downto 0) <= product_10(32) & product_10(32) & product_10(32) & product_10(32) & product_10(32) & product_10(32 downto 0);
+	ext_product_11(37 downto 0) <= product_11(32) & product_11(32) & product_11(32) & product_11(32) & product_11(32) & product_11(32 downto 0);
+	ext_product_12(37 downto 0) <= product_12(32) & product_12(32) & product_12(32) & product_12(32) & product_12(32) & product_12(32 downto 0);
+	ext_product_13(37 downto 0) <= product_13(32) & product_13(32) & product_13(32) & product_13(32) & product_13(32) & product_13(32 downto 0);
+	ext_product_14(37 downto 0) <= product_14(32) & product_14(32) & product_14(32) & product_14(32) & product_14(32) & product_14(32 downto 0);
+	ext_product_15(37 downto 0) <= product_15(32) & product_15(32) & product_15(32) & product_15(32) & product_15(32) & product_15(32 downto 0);
+	ext_product_16(37 downto 0) <= product_16(32) & product_16(32) & product_16(32) & product_16(32) & product_16(32) & product_16(32 downto 0);
+	ext_product_17(37 downto 0) <= product_17(32) & product_17(32) & product_17(32) & product_17(32) & product_17(32) & product_17(32 downto 0);
+	ext_product_18(37 downto 0) <= product_18(32) & product_18(32) & product_18(32) & product_18(32) & product_18(32) & product_18(32 downto 0);
+	ext_product_19(37 downto 0) <= product_19(32) & product_19(32) & product_19(32) & product_19(32) & product_19(32) & product_19(32 downto 0);
+	
+	filter_out <= ext_product_1 + ext_product_2 + ext_product_3 + ext_product_4 + ext_product_5 + ext_product_6 + ext_product_7 + ext_product_8 + ext_product_9 + ext_product_10 + ext_product_11 + ext_product_12 + ext_product_13 + ext_product_14 + ext_product_15 + ext_product_16 + ext_product_17 + ext_product_18 + ext_product_19;
+
+end FIR_37_tap;

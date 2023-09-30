@@ -1,0 +1,93 @@
+MPASM 5.77                          MAIN.ASM   12-9-2021  11:26:05         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; TODO INSERT CONFIG CODE HERE USING CONFIG BITS GENERATOR
+Warning[207]: Found label after column 1. (GPR_VAR)
+                      00002     GPR_VAR        UDATA
+Warning[207]: Found label after column 1. (somme_Low)
+000000                00003     somme_Low       RES     1      ; User variable linker places
+Warning[207]: Found label after column 1. (somme_High)
+000001                00004     somme_High      RES     1      ; User variable linker places
+Warning[207]: Found label after column 1. (incrementeur)
+000002                00005     incrementeur    RES     1      ; User variable linker places
+Warning[207]: Found label after column 1. (longueur)
+000003                00006     longueur        RES     1
+                      00007             
+                      00008 RES_VECT  CODE    0x0000            ; processor reset vector
+000000 EF?? F???      00009     GOTO    DEBUT                   ; go to beginning of program
+                      00010 
+                      00011 ; TODO ADD INTERRUPTS HERE IF USED
+                      00012 
+                      00013 MAIN_PROG CODE                      ; let linker place main program
+                      00014 
+000000                00015 calcul_somme:
+                      00016     ;init
+000000 6E??           00017     MovWF longueur
+000002 0E00           00018     MovLW d'0'
+000004 6E??           00019     MovWF somme_Low
+000006 6E??           00020     MovWF somme_High
+000008 0E00           00021     MovLW d'0'
+00000A 6E??           00022     MovWF incrementeur
+                      00023      ; 1st loop
+00000C                00024 L1
+                      00025     ; add incr to somme
+00000C 5000           00026     MovF somme_Low, 0
+00000E 2400           00027     ADDWF incrementeur, 0
+000010 6E??           00028     MovWF somme_Low
+                      00029     ; overload management
+000012 E3??           00030     BNC NOVERLOAD
+000014 2A??           00031     INCF somme_High
+000016                00032 NOVERLOAD
+                      00033     ; if incr INF longeur
+000016 2A??           00034     INCF incrementeur
+000018 5000           00035     MovF incrementeur, 0
+00001A 60??           00036     CPFSLT longueur
+                      00037     ; if TRUE
+00001C EF?? F???      00038     GOTO L1
+                      00039     ; if FALSE
+Warning[203]: Found opcode in column 1. (RETURN)
+000020 0012           00040 RETURN
+                      00041  
+000022                00042 DEBUT
+                      00043 
+                      00044     ; init
+000022 0E28           00045     MovLW d'40'
+                      00046   
+000024 EC?? F???      00047     CALL calcul_somme
+MPASM 5.77                          MAIN.ASM   12-9-2021  11:26:05         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00048    
+000028 EF?? F???      00049     GOTO $
+                      00050     
+                      00051     END
+MPASM 5.77                          MAIN.ASM   12-9-2021  11:26:05         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+DEBUT                             00000022
+L1                                0000000C
+NOVERLOAD                         00000016
+_MAIN_PROG_0028                   00000028
+__18F45K20                        00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+calcul_somme                      00000000
+incrementeur                      00000002
+longueur                          00000003
+somme_High                        00000001
+somme_Low                         00000000
+
+Errors   :     0
+Warnings :     6 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

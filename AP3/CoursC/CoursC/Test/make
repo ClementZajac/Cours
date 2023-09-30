@@ -1,0 +1,6 @@
+prog: main.c clean
+	gcc -o main.o main.c rbtree.c
+	./main.o
+
+clean:
+	rm -rf *.o

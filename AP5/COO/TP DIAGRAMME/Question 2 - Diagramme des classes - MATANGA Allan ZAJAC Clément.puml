@@ -1,0 +1,98 @@
+@startuml
+abstract UtilisateurExterne{
+  - id : int
+  - name : string
+  - surname : string
+  + discoverAnimals(TypeZone) : Animal[]
+}
+
+class Sponsor{
+  + doDonation(int) : void
+}
+
+class Utilisateur{
+
+}
+Sponsor --|> UtilisateurExterne
+Utilisateur --|> UtilisateurExterne
+
+interface Donation{
+  - id : int
+  - amount : int
+  - date : date
+  - type : DonationType
+  + getAmount() : int
+  + getDate() : date
+}
+
+class DonationReguliére{
+  + getAmount() : int
+  + getDate() : date
+}
+
+class DonationPontuelle{
+  + getAmount() : int
+  + getDate() : date
+}
+(DonationPontuelle, DonationReguliére) . Donation
+
+class Evenement
+class Vote{
+  
+}
+
+Donation --|> Animal
+Animal --|> Evenement
+Evenement --|> Vote
+
+Donation "1..1" -- "1..*" UtilisateurExterne
+
+AnimalRepositoryAPI --|> AnimalRepository
+AnimalRepositoryBDD --|> AnimalRepository
+
+AnimalRepository "1..*" -- "1..*" Animal
+
+class Animal{
+    - weight : float
+    - size : float
+    - food : string
+    - vulnerability : Vulnerability
+    - family : string
+    - life : int
+    - habitat : string
+    - geographicArea : string
+    - numberIndividualConted : int
+    - name : string
+    - donnateurs : UtilisateursExterne[]
+}
+
+Animal "1..1" --> "0..*" Vulnerability
+
+enum Vulnerability <<enumeration>> {
+  endangered
+  vulnerable
+  near_threatened
+  least_concern
+  data_deficient
+  not_evaluated
+}
+
+UtilisateurExterne "1..*" --> "1..*" AnimalRepository
+
+interface AnimalRepository{
+  + getAnimals(TypeZone) : Animal[]
+}
+
+class AnimalRepositoryBDD{
+  + getAnimals(TypeZone) : Animal[]
+}
+
+class AnimalRepositoryAPI{
+  + getAnimals(TypeZone) : Animal[]
+}
+
+
+
+
+
+@enduml

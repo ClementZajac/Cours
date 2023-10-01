@@ -1,0 +1,33 @@
+@startuml
+'default
+top to bottom direction
+
+
+package Utilisateurs_extérieurs {
+    actor Utilisateur as User
+    actor Sponsor as Sponsor
+    Sponsor --|> User
+}
+
+
+package Staff_du_Zoo {
+    actor Consumer_Kafka as ConsumerKafka
+}
+
+User -right- (Doucouvrir les animaux par zone géographique)
+
+Sponsor -right- (Consulter les animaux sponsorisés)
+(Consulter les animaux sponsorisés) -right- (Faire une donnation)
+(Faire une donnation ponctuelle) --> (Faire une donnation)
+(Faire une donnation mensuelle) --> (Faire une donnation) 
+
+(Voter pour le prénom d'un animal) ..> (Faire une donnation) : <<extends>>
+
+(Faire une donnation) <.. (Consulter les informations de l'animal) : <<extends>>
+
+(Consulter les informations de l'animal) ..> (Renseigner les informations de l'animal) : <<includes>>
+(Renseigner les informations de l'animal) -right- ConsumerKafka
+
+
+
+@enduml

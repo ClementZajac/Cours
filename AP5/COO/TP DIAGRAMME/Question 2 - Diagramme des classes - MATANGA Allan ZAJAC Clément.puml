@@ -16,27 +16,23 @@ class Utilisateur{
 Sponsor --|> UtilisateurExterne
 Utilisateur --|> UtilisateurExterne
 
-interface Donation{
+abstract Donation{
   - id : int
   - amount : int
   - date : date
-  - type : DonationType
-  + getAmount() : int
-  + getDate() : date
 }
 
 class DonationReguliére{
-  + getAmount() : int
-  + getDate() : date
+  - dateFin : date
 }
 
 class DonationPontuelle{
-  + getAmount() : int
-  + getDate() : date
 }
 (DonationPontuelle, DonationReguliére) . Donation
 
-class Evenement
+class Evenement{
+  + 
+}
 class Vote{
   
 }
@@ -53,6 +49,7 @@ AnimalRepositoryBDD --|> AnimalRepository
 AnimalRepository "1..*" -- "1..*" Animal
 
 class Animal{
+    - id : int
     - weight : float
     - size : float
     - food : string
@@ -63,7 +60,7 @@ class Animal{
     - geographicArea : string
     - numberIndividualConted : int
     - name : string
-    - donnateurs : UtilisateursExterne[]
+    - donnation : Donnation[]
 }
 
 Animal "1..1" --> "0..*" Vulnerability
@@ -81,14 +78,18 @@ UtilisateurExterne "1..*" --> "1..*" AnimalRepository
 
 interface AnimalRepository{
   + getAnimals(TypeZone) : Animal[]
+  + getAnimal(id) : Animal
+
 }
 
 class AnimalRepositoryBDD{
   + getAnimals(TypeZone) : Animal[]
+  + getAnimal(id) : Animal
 }
 
 class AnimalRepositoryAPI{
   + getAnimals(TypeZone) : Animal[]
+  + getAnimal(id) : Animal
 }
 
 

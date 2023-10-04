@@ -1,8 +1,16 @@
 @startuml
-abstract UtilisateurExterne{
+
+abstract Personne{
   - id : int
   - name : string
   - surname : string
+}
+
+class  ConsumerKafka{
+}
+
+abstract UtilisateurExterne{
+  - listOfDonnation : Donnation[]
   + discoverAnimals(TypeZone) : Animal[]
 }
 
@@ -10,16 +18,13 @@ class Sponsor{
   + doDonation(int) : void
 }
 
-class Utilisateur{
-
-}
-Sponsor --|> UtilisateurExterne
-Utilisateur --|> UtilisateurExterne
+class Utilisateur{}
 
 abstract Donation{
   - id : int
   - amount : int
   - date : date
+  - donateur : UtilisateurExterne
 }
 
 class DonationReguliére{
@@ -28,25 +33,19 @@ class DonationReguliére{
 
 class DonationPontuelle{
 }
-(DonationPontuelle, DonationReguliére) . Donation
 
 class Evenement{
-  + 
+  - id : int
+  - name : string
+  - date : date
+  - description : string
+  - ConsumerKafka : ConsumerKafka
 }
 class Vote{
   
 }
 
-Donation --|> Animal
-Animal --|> Evenement
-Evenement --|> Vote
 
-Donation "1..1" -- "1..*" UtilisateurExterne
-
-AnimalRepositoryAPI --|> AnimalRepository
-AnimalRepositoryBDD --|> AnimalRepository
-
-AnimalRepository "1..*" -- "1..*" Animal
 
 class Animal{
     - id : int
@@ -60,10 +59,12 @@ class Animal{
     - geographicArea : string
     - numberIndividualConted : int
     - name : string
-    - donnation : Donnation[]
+    - listOfDonnation : Donnation[]
+    - listOfEvent : Evenement[]
+    + addDonation(Donation) : void
+    + addEvenement(Evenement) : void
 }
 
-Animal "1..1" --> "0..*" Vulnerability
 
 enum Vulnerability <<enumeration>> {
   endangered
@@ -74,12 +75,10 @@ enum Vulnerability <<enumeration>> {
   not_evaluated
 }
 
-UtilisateurExterne "1..*" --> "1..*" AnimalRepository
 
 interface AnimalRepository{
   + getAnimals(TypeZone) : Animal[]
   + getAnimal(id) : Animal
-
 }
 
 class AnimalRepositoryBDD{
@@ -92,8 +91,29 @@ class AnimalRepositoryAPI{
   + getAnimal(id) : Animal
 }
 
+Animal "1..1" --> "0..*" Vulnerability
 
+Donation  -- Animal
+Evenement --|> Vote
 
+Donation "0..*" -- "1..1" UtilisateurExterne
 
+class AnimalRepositoryAPI implements AnimalRepository
+class AnimalRepositoryBDD implements AnimalRepository
+
+AnimalRepository -- UtilisateurExterne
+
+'AnimalRepository "1..*" -- "1..*" Animal
+
+(DonationPontuelle, DonationReguliére) . Donation
+
+class Sponsor extends UtilisateurExterne
+class Utilisateur extends UtilisateurExterne
+
+class UtilisateurExterne extends Personne
+class ConsumerKafka extends Personne
+
+ConsumerKafka "1..1" -- "1..*" Evenement
+Animal "1..1" -- "0..*" Evenement
 
 @enduml

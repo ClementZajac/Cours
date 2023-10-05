@@ -23,9 +23,6 @@ alt
     
     Client -> Caisse : Passer au paiement
 
-    alt(Authentification)
-
-    end
 
     loop le client n'a pas choisi de mode de paiement
         Caisse -> Client : Proposer les modes de paiement

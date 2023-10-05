@@ -1,42 +1,59 @@
 @startuml
 
 Actor Sponsor
-Participant SiteWeb
+Participant webSite
 Database DataBase_Or_API as back
 Participant ConsumerKafka
 'Participant Animal
   ConsumerKafka -> back : RenseignerNaissance()
 
-Sponsor -> SiteWeb : authentification()
-alt "Authentification OK" as auth
-  SiteWeb -> back : get informations on Sponsor
-  back -> SiteWeb : return informations on Sponsor
-  SiteWeb -> Sponsor : return "Authentification effectuée"
+Sponsor -> webSite : authentication()
+Activate webSite
+alt#Gold #LightBlue "Authentification OK" 
+  webSite -> back : get informations of Sponsor
+  activate back
+  back --> webSite : return informations of Sponsor
+  deactivate back
+  webSite --> Sponsor : return "Authentification effectuée"
+  deactivate webSite
 
-  Sponsor -> SiteWeb : getAnimal()
-  SiteWeb -> back : get informations on Animal
-  back -> SiteWeb : return Informations on Animal
-  SiteWeb -> Sponsor : return Object Animal
+  Sponsor -> webSite : getAnimal()
+  activate webSite
+  webSite -> back : get informations of Animal
+  activate back
+  back --> webSite : return Informations of Animal
+  deactivate back
+  webSite --> Sponsor : return Object Animal
+  deactivate webSite
 
-  Sponsor -> SiteWeb : Animal.getListOfEvents()
-  SiteWeb -> back : get events of this animal
-  back -> SiteWeb : return events of this animal
-  SiteWeb -> Sponsor : return Object listOfEvents
+  Sponsor -> webSite : Animal.getListOfEvents()
+  activate webSite
+  webSite -> back : get events of this animal
+  activate back
+  back --> webSite : return events of this animal
+  deactivate back
+  webSite --> Sponsor : return Object listOfEvents
+  deactivate webSite
 
   'If animal is born && name is null
 
 
-  alt "Animal is born and name is not defined" as born
+  alt#Gold #PaleGreen Animal is bord : listOfEvent contain "born" event and name is not defined
     
-    Sponsor -> SiteWeb : voteForName(String name)
-    SiteWeb -> back : add vote for name
-    back -> SiteWeb : return true
-    SiteWeb -> Sponsor : return "Vote enregistré"
-  else do some stuff
+    Sponsor -> webSite : voteForName(String name)
+    activate webSite
+    webSite -> back : add vote for name
+    activate back
+    back --> webSite : return true
+    deactivate back
+    webSite --> Sponsor : return "Vote enregistré"
+    deactivate webSite
+  else #Pink Animal have already a name
+    webSite --> Sponsor :return  "This animal have already a name"
   end
 
-else "Authentification KO"
-  SiteWeb -> Sponsor : return "Authentification échouée"
+else #Pink "Authentification KO"
+  webSite -> Sponsor : return "Authentification échouée"
 end
 
 

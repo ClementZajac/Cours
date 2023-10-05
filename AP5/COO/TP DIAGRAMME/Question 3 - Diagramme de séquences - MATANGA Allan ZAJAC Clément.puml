@@ -1,0 +1,46 @@
+@startuml
+
+Actor Sponsor
+Participant SiteWeb
+Database DataBase_Or_API as back
+Participant ConsumerKafka
+'Participant Animal
+  ConsumerKafka -> back : RenseignerNaissance()
+
+Sponsor -> SiteWeb : authentification()
+alt "Authentification OK" as auth
+  SiteWeb -> back : get informations on Sponsor
+  back -> SiteWeb : return informations on Sponsor
+  SiteWeb -> Sponsor : return "Authentification effectuée"
+
+  Sponsor -> SiteWeb : getAnimal()
+  SiteWeb -> back : get informations on Animal
+  back -> SiteWeb : return Informations on Animal
+  SiteWeb -> Sponsor : return Object Animal
+
+  Sponsor -> SiteWeb : Animal.getListOfEvents()
+  SiteWeb -> back : get events of this animal
+  back -> SiteWeb : return events of this animal
+  SiteWeb -> Sponsor : return Object listOfEvents
+
+  'If animal is born && name is null
+
+
+  alt "Animal is born and name is not defined" as born
+    
+    Sponsor -> SiteWeb : voteForName(String name)
+    SiteWeb -> back : add vote for name
+    back -> SiteWeb : return true
+    SiteWeb -> Sponsor : return "Vote enregistré"
+  else do some stuff
+  end
+
+else "Authentification KO"
+  SiteWeb -> Sponsor : return "Authentification échouée"
+end
+
+
+
+@enduml
+
+

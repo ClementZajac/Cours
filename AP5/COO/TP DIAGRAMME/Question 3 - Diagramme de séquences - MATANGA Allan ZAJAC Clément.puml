@@ -35,7 +35,6 @@ alt#Gold #LightBlue "Authentification OK"
   webSite --> Sponsor : return Object listOfEvents
   deactivate webSite
 
-  'If animal is born && name is null
 
 
   alt#Gold #PaleGreen Animal is bord : listOfEvent contain "born" event and name is not defined
